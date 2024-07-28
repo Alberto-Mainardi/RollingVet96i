@@ -6,6 +6,7 @@ class Server {
     constructor(){
         this.app = express();
         this.port = 8080;
+        this.rutaPacientes = "/api/pacientes";
 
         this.conectarDb();
         this.middlewares();
@@ -19,7 +20,7 @@ class Server {
         this.app.use(express.json());
     }
     rutas(){
-        
+        this.app.use(this.rutaPacientes , require("../routes/pacientes"));
     }
     listen(){
         this.app.listen(this.port, ()=>{
