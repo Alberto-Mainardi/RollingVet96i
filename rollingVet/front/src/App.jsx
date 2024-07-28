@@ -9,7 +9,7 @@ import Ingresar from './views/Ingresar';
 import Registrarse from './views/Registrarse';
 import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
-
+import NavBarCollapseEjemplo from './common/NavBarCollapseEjemplo'
 
 function App() {
 
@@ -26,7 +26,7 @@ function App() {
           <Route path='/planes' element={<Planes />}/>
           <Route path='/admin/gestionPacientes' element={<AdministrarPacientes/>}/>
           <Route path='/admin/gestionTurnos' element={<AdministrarTurnos/>}/>
-          {/* <Route path='*' element={<ErrorScreen/>} /> */}
+          <Route path='*' element={<ErrorScreen/>} />
           
         </Routes>
     </BrowserRouter>
