@@ -1,0 +1,15 @@
+{
+    "pacientes": [
+      {
+        "id": "9e13",
+        "nombre": "alber",
+        "apellido": "Mainardi",
+        "email": "albertomainardi.14@gmail.com",
+        "telefono": 12345678,
+        "contraseña": "$2a$12$Vn60piiEmwEtWzGuFZuRpecoIkh9ko61RZIkHw1m9abrrIujbaX2W",
+        "mascotasIDs": [{}],
+        "admin": false,
+        "estado": true
+      }
+    ]
+}
