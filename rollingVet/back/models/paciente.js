@@ -24,14 +24,18 @@ const SchemaPaciente = Schema({
         type:Boolean,
         default:false
     },
+    mascotasIDs: {
+        type:Array,
+        default:[]
+    },
     estado: {
         type:Boolean,
         default:true
     }
 })
 SchemaPaciente.methods.toJSON = function () {
-    const {__v, _id, ...pet} = this.toObject()
-    pet.uid = _id;
-    return pet
+    const {__v, _id, ...paciente} = this.toObject()
+    paciente.uid = _id;
+    return paciente
 }
 module.exports = model("Paciente", SchemaPaciente);
