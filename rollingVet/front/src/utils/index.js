@@ -2,10 +2,10 @@ const urlPacientes = "http://localhost:3000/pacientes";
 import axios from 'axios';
 import { compareSync } from 'bcryptjs-react';
 
-export const validarPaciente = async (email, nombre) => {
+export const validarPaciente = async (email) => {
     let data = await traerPacientes()
     let respuesta = data.find((paciente) => {
-        if (paciente.email == email || paciente.nombre == nombre) {
+        if (paciente.email == email) {
             return paciente;
         } 
     })
