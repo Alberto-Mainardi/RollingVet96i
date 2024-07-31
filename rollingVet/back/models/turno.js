@@ -27,6 +27,10 @@ const SchemaTurno = Schema({
     hora: {
         type:String,
         required:[true, "Este campo es obligatorio"]
+    },
+    estado: {
+        type:Boolean,
+        required:true
     }
 })
 SchemaTurno.methods.toJSON = function () {
