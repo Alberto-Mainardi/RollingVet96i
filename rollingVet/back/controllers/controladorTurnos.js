@@ -20,7 +20,7 @@ const create = async (req, res) => {
     hora,
     estado,
   } = req.body;
-  const turnoOcupado = await Turno.findOne({ fecha, hora, estado:true });
+  const turnoOcupado = await Turno.findOne({ fecha, hora, sucursal, estado:true });
 
   if (turnoOcupado) {
     return res
