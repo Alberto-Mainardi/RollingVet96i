@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes } from "./utils/index";
-import NavbarApp from './common/NavbarApp'
+import NavbarApp from './common/NavbarApp';
 import Inicio from './views/Inicio';
 import Nosotros from './views/Nosotros';
 import Contacto from './views/Contacto';
