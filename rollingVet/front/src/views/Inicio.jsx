@@ -5,11 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 const Inicio = () => {
   return (
-    <>
-      
-
-    
-    </>
+    <div>Inicio</div>
   )
 }
 
