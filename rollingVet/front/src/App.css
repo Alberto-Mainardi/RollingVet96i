@@ -1,13 +1,37 @@
 #root {
   /* max-width: 1280px; */
   /* margin: 0 auto; */
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--bg-color1);
+  
+}
+
+:root{
+  --texto-color: #484041;
+  --bg-color1: #EEF0E1;
+  --bg-color2: #79aea379;
+  
+  --color-principal: #484041;
+}
+
+
+.bg-navBar{
+  background-color: var(--color-principal);
+}
+
+
+
+@media (min-width: 1024px){
+  .navBar-Height{
+    height: 128px;
+  }
+  
+  
 }
 
 :root{
