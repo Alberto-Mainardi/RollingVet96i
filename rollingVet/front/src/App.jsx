@@ -9,12 +9,16 @@ import Ingresar from './views/Ingresar';
 import Registrarse from './views/Registrarse';
 import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
+import Footer from './common/Footer';
 
 
 function App() {
 
 
   return (
+    
+      
+    <div className='w-100'>
     <BrowserRouter className='bg-dark'>
       <NavbarApp/>
         <Routes>
@@ -29,7 +33,12 @@ function App() {
           {/* <Route path='*' element={<ErrorScreen/>} /> */}
           
         </Routes>
+        
+      
     </BrowserRouter>
+    <Footer/>
+    </div>
+    
   )
 }
 

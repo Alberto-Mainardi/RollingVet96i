@@ -24,6 +24,11 @@
   background-color: var(--color-principal);
 }
 
+.list-style-none{
+  list-style-type: none;
+  
+}
+
 
 
 @media (min-width: 1024px){
