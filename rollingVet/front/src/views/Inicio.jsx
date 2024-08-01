@@ -1,9 +1,10 @@
-import React from 'react'
+import WeatherForm from "../components/WeatherForm";
 
 const Inicio = () => {
+
   return (
-    <div>Inicio</div>
-  )
+    
+  );
 }
 
 export default Inicio
