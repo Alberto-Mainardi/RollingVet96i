@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  background-color: var(--bg-color1);
   
 }
 
@@ -15,7 +15,6 @@
   --texto-color: #484041;
   --bg-color1: #EEF0E1;
   --bg-color2: #79aea379;
-  
   --color-principal: #484041;
 }
 
@@ -29,10 +28,21 @@
   
 }
 
+.bg-sucursal{
+  background-color: var(--bg-color2);
+}
 
 
 @media (min-width: 1024px){
   .navBar-Height{
     height: 128px;
   }
+}
+
+@media (min-width: 319px){
+  .sucursal-map{
+      width: 280px;
+      height: 280px;
+  }
+  
 }
