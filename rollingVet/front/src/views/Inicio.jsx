@@ -1,12 +1,16 @@
-import React from 'react';
+import React from "react";
+import { Carrusel } from "../components/Carrusel";
 
-import Carousel from 'react-bootstrap/Carousel';
-
+//import ExampleCarouselImage from "components/ExampleCarouselImage";
 
 const Inicio = () => {
   return (
-    <div>Inicio</div>
-  )
-}
+    <>
+      <div>Inicio</div>
 
-export default Inicio
+      <Carrusel/>
+    </>
+  );
+};
+
+export default Inicio;
