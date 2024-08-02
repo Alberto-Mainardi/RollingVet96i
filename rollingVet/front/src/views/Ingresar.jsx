@@ -1,9 +1,12 @@
+import { useContext } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
-  
+import { ContextoUsuario } from '../components/ContextoUsuario';
+import Swal from 'sweetalert2'
 function Ingresar({ingresoPaciente}) {
 
+  const {user, setUser} = useContext(ContextoUsuario);
   const {register, handleSubmit, formState:{errors}, reset} = useForm();
   const ingresar = async (obj) => {
     try {
@@ -13,7 +16,23 @@ function Ingresar({ingresoPaciente}) {
       if (!ingreso) {
         console.log("usuario incorrecto");
       } else {
-        console.log("sesion iniciada exitosamente");
+        setUser(
+          {
+              "id": ingreso.id,
+              "nombre": ingreso.nombre,
+              "apellido": ingreso.apellido,
+              "email": ingreso.email,
+              "telefono": ingreso.telefono,
+              "estado":ingreso.estado,
+              "mascotasIDs":ingreso.mascotasIDs,
+              "admin":ingreso.admin,
+            }
+      )
+        Swal.fire({
+          title: "Sesión Iniciada Exitosamente!",
+          text: "cool",
+          icon: "success"
+        });
       }
       reset();
     } catch (error) {
