@@ -39,10 +39,20 @@
   }
 }
 
+@media (min-width:1023px) and (max-width: 1441px){
+
+  .logos-lg{
+    width: 70px;
+    height: 70px;
+  }
+
+}
+
 @media (min-width: 319px){
   .sucursal-map{
       width: 280px;
       height: 280px;
   }
   
+
 }
