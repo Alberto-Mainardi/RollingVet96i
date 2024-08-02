@@ -12,9 +12,10 @@ const SchemaMascota = Schema({
         type:String,
         required:[true, "Este campo es obligatorio"]
     },
-    dueñoID: {
-        type:Number,
-        required:[true, "Este campo es obligatorio"]
+    propietarioID: {
+        type: Schema.Types.ObjectId,
+        ref: "Paciente",
+        required: true,
     },
     state: {
         type:Boolean,

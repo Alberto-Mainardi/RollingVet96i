@@ -1,5 +1,16 @@
 const Mascota = require("../models/mascota");
 
+const { limite = 5, desde = 0 } = req.query;
+const query = { state: true };
+const [total, cursos] = await Promise.all([
+    Mascota.countDocuments(query),
+    Mascota.find(query)
+      .skip(Number(desde))
+      .limit(Number(limite))
+      .populate("paciente")
+  ]);
+
+
 const get = async (req, res) => {
     let mascotas = await Mascota.find({})
     return res.status(200).json({mascotas})
@@ -10,8 +21,8 @@ const getOne = async (req, res) => {
     return res.status(200).json({mascota});
 }
 const create = async (req, res) => {
-    const { nombre, especie, raza, dueñoID } = req.body;
-    const mascotaNueva = new Mascota({ nombre, especie, raza, dueñoID });
+    const { nombre, especie, raza, propietarioID } = req.body;
+    const mascotaNueva = new Mascota({ nombre, especie, raza, propietarioID });
     await mascotaNueva.save();
     return res.status(201).json({msg: "Mascota registrada exitosamente.", mascota:mascotaNueva})
 }
