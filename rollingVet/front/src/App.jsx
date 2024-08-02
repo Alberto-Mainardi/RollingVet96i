@@ -1,4 +1,5 @@
 import './App.css'
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes } from "./utils/index";
 import NavbarApp from './common/NavbarApp';
@@ -10,12 +11,26 @@ import Ingresar from './views/Ingresar';
 import Registrarse from './views/Registrarse';
 import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
-
+import { ContextoUsuario } from './components/ContextoUsuario';
 
 function App() {
 
+  const [user, setUser] = useState(
+    {
+      "nombre": "",
+      "apellido":"",
+      "email": "",
+      "telefono": "",
+      "estado":false,
+      "mascotasIDs":[],
+      "admin":false,
+    }
+  )
+  console.log(user);
+  
 
   return (
+    <ContextoUsuario.Provider value={{user,setUser}}>
     <BrowserRouter className='bg-dark'>
       <NavbarApp/>
         <Routes>
@@ -31,6 +46,7 @@ function App() {
           
         </Routes>
     </BrowserRouter>
+    </ContextoUsuario.Provider>
   )
 }
 
