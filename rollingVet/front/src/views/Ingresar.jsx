@@ -14,7 +14,11 @@ function Ingresar({ingresoPaciente}) {
       let ingreso = await ingresoPaciente(obj);
       console.log(ingreso);
       if (!ingreso) {
-        console.log("usuario incorrecto");
+        Swal.fire({
+          icon: "error",
+          title: "Inicio de sesión fallido",
+          text: "el correo o contraseña son incorrectos.",
+        });
       } else {
         setUser(
           {
