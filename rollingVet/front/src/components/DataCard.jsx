@@ -1,10 +1,13 @@
 import React from "react";
 import { Card, Badge, Row, Col } from "react-bootstrap";
+import '../App.css'
 
-const DataCard = ({ weatherData }) => {
+const DataCard = ({ weatherData, setWeatherData, setError }) => {
+
+
   return (
-    <Card>
-      <Card.Body className="text-center">
+    <Card className="border-0">
+      <Card.Body className="text-center text-white">
         <Card.Title>
           {weatherData.name}{" "}
           <Badge bg="warning" text="dark">
@@ -34,6 +37,7 @@ const DataCard = ({ weatherData }) => {
           </Col>
         </Row>
       </Card.Body>
+      
     </Card>
   );
 };

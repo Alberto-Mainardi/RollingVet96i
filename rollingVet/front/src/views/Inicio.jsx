@@ -12,13 +12,16 @@ const Inicio = () => {
   const [error, setError] = useState(false)
   return (
     <>
-      <main className=" container my-5">
-        <WeatherForm setWeatherData={setWeatherData} setError={setError}></WeatherForm>
+      <main className="container my-5">
+        <div className="weatherContainer weatherCard">
         { !error ? (
           <DataCard weatherData={weatherData}></DataCard>
         ) : (
           <Error />
         )}
+        <WeatherForm setWeatherData={setWeatherData} setError={setError}></WeatherForm>
+        </div>
+        
       </main>
       <footer className="bg-dark text-light text-center py-4">
         <p>&copy; Todos los derechos reservados</p>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import '../App.css';
 
 const WeatherForm = ({setWeatherData, setError}) => {
 
@@ -39,12 +40,11 @@ const WeatherForm = ({setWeatherData, setError}) => {
     try {
       const response = await fetch(`http://ip-api.com/json/${ipAddress}`);
       const data = await response.json()
-      
       setGeoInfo(data);
       setCity(data.city);
-      setCountry(data.country)
+      setCountry(data.countryCode)
       console.log(data);
-      queryAPI(data.city, data.country);
+      queryAPI(data.city, data.countryCode);
     } catch (error) {
       console.error("no se pudo conseguir la información de la ubicación:", error);
     }
@@ -78,15 +78,15 @@ const WeatherForm = ({setWeatherData, setError}) => {
 
   return (
     <section className="text-light">
-      <h1>Clima App <i className="bi bi-cloud-sun"></i></h1>
-      <Form className="my-5" onSubmit={handleSubmit}>
+      <Form className="mt-3" onSubmit={handleSubmit}>
         <Row>
-          <Col md={6}>
-            <Form.Group className="mb-3" controlId="formCity">
+          <Col md={12}>
+            <Form.Group className="mb-3 mx-3" controlId="formCity">
               <Form.Label>Ciudad</Form.Label>
               <Form.Control
+                className="text-white placeholder-white"
                 type="text"
-                placeholder="Ingresa una ciudad"
+                placeholder="Ingresa una localidad"
                 required
                 minLength={3}
                 maxLength={50}
@@ -95,10 +95,11 @@ const WeatherForm = ({setWeatherData, setError}) => {
               />
             </Form.Group>
           </Col>
-          <Col md={6}>
-            <Form.Group className="mb-3" controlId="formCountry">
+          <Col md={12}>
+            <Form.Group className="mb-3 mx-3" controlId="formCountry">
               <Form.Label>Codigo de pais</Form.Label>
               <Form.Control
+                className="text-white placeholder-white"
                 type="text"
                 placeholder="Ingresa un codigo de pais ej: AR"
                 required
