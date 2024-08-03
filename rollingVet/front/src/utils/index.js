@@ -29,7 +29,7 @@ export const traerPacientes = async () => {
 export const ingresoPaciente = async (obj) => {
     let pacientes = await traerPacientes();
     let paciente = pacientes.find(paciente => {
-        if (paciente.email == obj.email) {
+        if (paciente.email == obj.email && paciente.contraseña == obj.contraseña) {
             return paciente
         }
     });
