@@ -5,6 +5,10 @@ import DataCard from "../components/DataCard";
 import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Error from "../components/Error";
+import React from 'react';
+
+import Carousel from 'react-bootstrap/Carousel';
+
 
 const Inicio = () => {
 
