@@ -1,0 +1,19 @@
+:root{
+    --texto-color: #484041;
+    --bg-color1-opacidad-70: rgba(238, 240, 225, 0.70);
+    --bg-color2: #79aea379;
+    --color-principal: #484041;
+}
+
+.planes-background{
+    background-image: url("../assets/media/planesBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+
+.bg-formulario{
+    background-color: var(--bg-color1-opacidad-70); 
+
+}

@@ -9,7 +9,7 @@ import userLogo from '../assets/media/userLogo.svg'
 import telefonoLogo from '../assets/media/telefonoLogo.svg'
 import Container from 'react-bootstrap/Container';
 import '../App.css'
-
+import '../estilos/planes.css'
 const Planes = () => {
   const [validated, setValidated] = useState(false);
   const formEmail = useRef();
@@ -44,11 +44,14 @@ const Planes = () => {
   };
 
   return (
-    <main className='d-flex flex-column justify-content-center align-items-center mt-4 bg-color1'>
+    <main className=' d-flex justify-content-center p-4 bg-color1 planes-background'>
+      <div className='w-100 rounded-4 p-4 d-flex flex-column  align-items-center bg-formulario'>
+
+      
       <h1 className='font-title'>Informacion de Planes</h1>
-      <section className='w-75 rounded-4'>
-        <p className='m-4 text-center text-wrap font-title'>Completa este formulario y nos contactaremos contigo para darte toda la informacion de este plan.</p>
-        <Form className=' p-4 rounded-4 m-4' ref={formEmail} noValidate validated={validated} onSubmit={handleSubmit}>
+      <section className='w-75  mt-4 pt-4'>
+        <p className='m-xl-4 text-center text-wrap font-title'>Completa este formulario y nos contactaremos contigo para darte toda la informacion de este plan.</p>
+        <Form className=' p-xl-4 m-xl-4' ref={formEmail} noValidate validated={validated} onSubmit={handleSubmit}>
 
           <Row className="mb-3">
             <Col xl={{span:6, offset:3}}>
@@ -98,7 +101,7 @@ const Planes = () => {
           <Button type="submit" className=''>Enviar</Button>
         </Form>
       </section>
-
+      </div>
     </main>
   );
 }
