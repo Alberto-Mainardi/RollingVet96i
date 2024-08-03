@@ -1,0 +1,26 @@
+:root{
+    --texto-color: #484041;
+    --bg-color1: #EEF0E1;
+    --bg-color2: #79aea379;
+    --bg-color1-opacidad-50: rgba(238, 240, 225, 0.5);
+    --color-principal: #484041;
+    
+  }
+
+*{box-sizing: border-box;}
+
+.bg-error404{
+    background-image: url("../assets/media/error404Background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.bg-color1-50{
+    background-color: var(--bg-color1-opacidad-50);
+}
+
+
+.error404-titulo{
+    font-size: 100px;
+}
