@@ -1,0 +1,22 @@
+:root{
+    --texto-color: #484041;
+    --bg-color1: #EEF0E1;
+    --bg-color2: #79aea379;
+    --bg-color1-opacidad-50: rgba(238, 240, 225, 0.5);
+    --color-principal: #484041;
+  }
+
+  .bg-Card{
+    background-color: var(--bg-color2);
+  }
+
+.bg-nosotros{
+    background-image: url("../assets/media/nosotrosBackground.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.bg-color1-50{
+    background-color: var(--bg-color1-opacidad-50);
+}
