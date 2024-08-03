@@ -13,6 +13,8 @@
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "bcryptjs-react": "^2.4.6",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "json-server": "^1.0.0-beta.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",

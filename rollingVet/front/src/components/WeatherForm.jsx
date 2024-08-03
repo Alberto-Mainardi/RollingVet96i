@@ -1,19 +1,59 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 const WeatherForm = ({setWeatherData, setError}) => {
-  const [city, setCity] = useState("San Miguel de Tucumán");
-  const [country, setCountry] = useState("AR");
-  const API = process.env.REACT_APP_APIKEY;
+
+  const [ipAddress, setIpAddress] = useState('');
+  const [geoInfo, setGeoInfo] = useState('');
+
+  const [city, setCity] = useState('Loading...');
+  const [country, setCountry] = useState('');
+  const API = 'cdc4af86410ab9b8c2ace34ea361fcb7'
+
+
+  useEffect(() => {
+    getIPDispositivo();
+  }, [])
+
+  useEffect(() => {
+    fetchIPInfo()
+  }, [])
 
   useEffect(() => {
      queryAPI();
   }, []);
 
-  const queryAPI = async() =>{
+  const getIPDispositivo = async () => {
+    try {
+      const response = await fetch('https://api.ipify.org/');
+      const data = await response.text();
+      //Guardar la dirección IP
+      setIpAddress(data);
+      return data;
+    } catch (error) {
+      console.error("no se pudo conseguir la ip:", error);
+    }
+  }
+  const fetchIPInfo = async () => {
+    try {
+      const response = await fetch(`http://ip-api.com/json/${ipAddress}`);
+      const data = await response.json()
+      
+      setGeoInfo(data);
+      setCity(data.city);
+      setCountry(data.country)
+      console.log(data);
+      queryAPI(data.city, data.country);
+    } catch (error) {
+      console.error("no se pudo conseguir la información de la ubicación:", error);
+    }
+  }
+
+  
+  const queryAPI = async (city, country) =>{
     try{
+        
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&lang=es&appid=${API}&units=metric`)
         const data = await response.json();
         if(response.status === 200){
@@ -25,12 +65,15 @@ const WeatherForm = ({setWeatherData, setError}) => {
     }catch(error)
     {
         console.log('error al consultar la api')
+        console.log(error);
+        
     }
   }
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-    queryAPI();
+    console.log(city, country);
+    queryAPI(city, country);
   }
 
   return (
