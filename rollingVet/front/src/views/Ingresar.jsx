@@ -3,11 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { ContextoUsuario } from '../components/ContextoUsuario';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 function Ingresar({ingresoPaciente}) {
 
   const {user, setUser} = useContext(ContextoUsuario);
   const {register, handleSubmit, formState:{errors}, reset} = useForm();
+  const navigate = useNavigate();
   const ingresar = async (obj) => {
     try {
       console.log(obj);
@@ -20,22 +22,39 @@ function Ingresar({ingresoPaciente}) {
           text: "el correo o contraseña son incorrectos.",
         });
       } else {
-        setUser(
-          {
-              "id": ingreso.id,
-              "nombre": ingreso.nombre,
-              "apellido": ingreso.apellido,
-              "email": ingreso.email,
-              "telefono": ingreso.telefono,
-              "estado":ingreso.estado,
-              "mascotasIDs":ingreso.mascotasIDs,
-              "admin":ingreso.admin,
-            }
-      )
+        let timerInterval;
         Swal.fire({
           title: "Sesión Iniciada Exitosamente!",
-          text: "cool",
-          icon: "success"
+          text: "En breves te redireccionaremos a la página principal",
+          icon: "success",
+          timer: 1400,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            timerInterval = setInterval(() => {
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+            navigate('/');
+            setUser(
+              {
+                  "id": ingreso.id,
+                  "nombre": ingreso.nombre,
+                  "apellido": ingreso.apellido,
+                  "email": ingreso.email,
+                  "telefono": ingreso.telefono,
+                  "estado":ingreso.estado,
+                  "mascotasIDs":ingreso.mascotasIDs,
+                  "admin":ingreso.admin,
+                }
+          );
+        }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer");
+          }
         });
       }
       reset();
