@@ -24,7 +24,7 @@ const Footer = () => {
 
             <div className='my-4'>
                 <a href=""><img src="" alt="logoRollingVet" /></a>
-                <a href="" className='text-decoration-none text-reset'><h3 className='fs-2  my-4 '>ROLLINGVET</h3></a>
+                <a href="" className='text-decoration-none text-reset'><h3 className='fs-2  my-4'>ROLLINGVET</h3></a>
                 <div className='mt-4'>
                     <a className='mx-3' href="Instagram.com"><img src={instagramLogo} alt="instagramLogo" /></a>
                     <a className='mx-3' href="Facebook.com"><img src={facebookLogo} alt="facebookLogo" /></a>
