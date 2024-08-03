@@ -1,6 +1,6 @@
 :root{
     --texto-color: #484041;
-    --bg-color1-opacidad-70: rgba(238, 240, 225, 0.70);
+    --bg-color1-50: rgba(238, 240, 225, 0.5);
     --bg-color2: #79aea379;
     --color-principal: #484041;
 }
@@ -12,6 +12,9 @@
     
 }
 
+.bg-color1-50{
+    background-color: var(--bg-color1-50);
+}
 
 .bg-formulario{
     background-color: var(--bg-color1-opacidad-70); 

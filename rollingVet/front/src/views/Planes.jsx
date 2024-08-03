@@ -8,21 +8,29 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import userLogo from '../assets/media/userLogo.svg'
 import telefonoLogo from '../assets/media/telefonoLogo.svg'
 import Container from 'react-bootstrap/Container';
+import {useForm} from 'react-hook-form'
 import '../App.css'
 import '../estilos/planes.css'
+import Swal from 'sweetalert2';
+
+
 const Planes = () => {
   const [validated, setValidated] = useState(false);
   const formEmail = useRef();
-
+  
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+    else{
+      sendEmail(event);
+    }
 
     setValidated(true);
-    sendEmail(event);
+    
+    
   };
 
 
@@ -36,20 +44,30 @@ const Planes = () => {
       .then(
         () => {
           console.log('SUCCESS!');
+          Swal.fire({
+            title: "Formulario enviado!",
+            text: "Nos pondremos en contacto contigo pronto. Muchas gracias.",
+            icon: "success"
+          });
         },
         (error) => {
           console.log('FAILED...', error.text);
+          Swal.fire({
+            title: "Oops!",
+            text: "Se produjo un error. Intente nuevamente.",
+            icon: "error"
+          });
         },
       );
   };
 
   return (
-    <main className=' d-flex justify-content-center p-4 bg-color1 planes-background'>
-      <div className='w-100 rounded-4 p-4 d-flex flex-column  align-items-center bg-formulario'>
+    <main className=' d-flex justify-content-center  bg-color1 planes-background'>
+      <div className='w-100 p-4 d-flex flex-column align-items-center bg-color1-50'>
 
       
       <h1 className='font-title'>Informacion de Planes</h1>
-      <section className='w-75  mt-4 pt-4'>
+      <section className='mt-4 pt-4'>
         <p className='m-xl-4 text-center text-wrap font-title'>Completa este formulario y nos contactaremos contigo para darte toda la informacion de este plan.</p>
         <Form className=' p-xl-4 m-xl-4' ref={formEmail} noValidate validated={validated} onSubmit={handleSubmit}>
 
@@ -64,6 +82,7 @@ const Planes = () => {
                     <img src={userLogo} alt="" />
                   </InputGroup.Text>
                   <Form.Control
+                    minLength={2}
                     required
                     type="text"
                     placeholder="Nombre y Apellido"
@@ -79,6 +98,7 @@ const Planes = () => {
                   </InputGroup.Text>
                   <Form.Control
                     required
+                    minLength={2}
                     type="email"
                     placeholder="Email"
                     name="user_email"
@@ -91,14 +111,14 @@ const Planes = () => {
                   <InputGroup.Text>
                     <img src={telefonoLogo} alt="telefonoLogo" />
                   </InputGroup.Text>
-                  <Form.Control required type="number" placeholder='Telefono' ></Form.Control>
+                  <Form.Control minLength={2} required type="number" placeholder='Telefono' ></Form.Control>
                 </InputGroup>
 
               </Form.Group>
             </Col>
           </Row>
 
-          <Button type="submit" className=''>Enviar</Button>
+          <Button variant='dark' type="submit" className=''>Enviar</Button>
         </Form>
       </section>
       </div>
