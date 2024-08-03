@@ -2,14 +2,11 @@ import { useRef, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css'
 import Sucursales from '../components/Sucursales';
-import { useForm } from "react-hook-form"
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
-import emailjs from '@emailjs/browser';
 import FormContacto from '../components/FormContacto';
+import '../estilos/contacto.css'
 
 const Contacto = () => {
 
@@ -32,10 +29,10 @@ const Contacto = () => {
   ];
 
   return (
-    <main className='d-flex flex-column mt-4 bg-color1'>
+    <main className='d-flex flex-column bg-contactanos'>
       
-      {/* {sucursales.map((sucursal, index) => { return <Sucursales key={`Sucursal${index}`} sucursal={sucursal} /> })} */}
-      <section className='m-4'>
+      
+      <section className='p-4 w-100 bg-color1-60'>
 
         <Container fluid>
             <Row xs={1} lg={3}>
@@ -44,7 +41,7 @@ const Contacto = () => {
               </Col>
 
               <Col  xs={{order:'first'}}>
-                  <h1>Contactanos</h1>
+                  <h1 className='font-title' >Contactanos</h1>
                   <FormContacto/>
               </Col>
               <Col>
@@ -53,15 +50,7 @@ const Contacto = () => {
             </Row>
 
         </Container>
-
-
-
-        {/* <article className='d-flex flex-column align-items-center '>
-          <h2 className='p-2'>TE BRINDAMOS LOS MEJORES PLANES DE SALUD Y PREVENCION PARA TU MASCOTA</h2>
-          <p>Completa nuestro formulario y recibiras un mail con toda la informacion que necesitás</p>
-
-          <FormContacto />
-        </article> */}
+        
       </section>
 
 

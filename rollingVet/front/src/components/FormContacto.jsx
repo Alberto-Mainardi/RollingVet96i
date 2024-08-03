@@ -7,7 +7,7 @@ import emailjs from '@emailjs/browser';
 import InputGroup from 'react-bootstrap/InputGroup';
 import userLogo from '../assets/media/userLogo.svg'
 import mensajeLogo from '../assets/media/mensajeLogo.svg'
-
+import '../estilos/contacto.css'
 function FormContacto() {
     const [validated, setValidated] = useState(false);
     const formEmail = useRef();
@@ -42,7 +42,7 @@ function FormContacto() {
     };
 
     return (
-        <Form className=' p-4 rounded-4' ref={formEmail} noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form className=' p-4 rounded-4 bg-color2-70' ref={formEmail} noValidate validated={validated} onSubmit={handleSubmit}>
             <Row className="mb-3">
                 <Col>
                 

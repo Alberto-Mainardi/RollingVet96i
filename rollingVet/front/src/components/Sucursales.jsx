@@ -6,12 +6,12 @@ import calendarioLogo from '../assets/media/calendarioLogo.svg'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
-
+import '../estilos/contacto.css'
 const Sucursales = (props) => {
     let sucursal = props.sucursal;
     return (
-        <div className='m-4 bg-sucursal rounded-4'>
-            <h2 className='my-4'>Sucursal {sucursal.id}</h2>
+        <div className='m-4 rounded-4'>
+            <h2 className='my-4 font-title'>Sucursal {sucursal.id}</h2>
             <article id='sucursalContainer'>
                 {sucursal.mapa}
                 <Container fluid >

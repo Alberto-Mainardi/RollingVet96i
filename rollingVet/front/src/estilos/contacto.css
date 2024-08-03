@@ -1,0 +1,42 @@
+:root{
+    --texto-color: #484041;
+    --bg-color1: rgba(238, 240, 225);
+    --bg-color1-opacidad-50:rgba(238, 240, 225, 0.5);
+    --bg-color2: #79aea379;
+    --bg-color2-opacidad-50: rgba(121, 174, 163, 0.5);
+    --color-principal: #484041;
+  }
+
+.bg-contactanos{
+    background-image: url("../assets/media/contactanosBackground4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: right center;
+}
+
+.bg-color1-60{
+    background-color: var(--bg-color1-opacidad-50);
+}
+
+.bg-color2-70{
+    background-color: var(--bg-color2-opacidad-50);
+}
+
+@media (min-width:1023px) and (max-width: 1441px){
+
+    .logos-lg{
+      width: 70px;
+      height: 70px;
+    }
+  
+  }
+  
+  @media (min-width: 319px){
+    .sucursal-map{
+        width: 280px;
+        height: 280px;
+    }
+    
+  
+  }
