@@ -17,7 +17,7 @@ const Inicio = () => {
   return (
     <>
       <main className="container my-5">
-        <div className="weatherContainer weatherCard">
+        <div className="weatherCard">
         { !error ? (
           <DataCard weatherData={weatherData}></DataCard>
         ) : (

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Badge, Row, Col } from "react-bootstrap";
 import '../App.css'
 
-const DataCard = ({ weatherData, setWeatherData, setError }) => {
+const DataCard = ({ weatherData }) => {
 
 
   return (
