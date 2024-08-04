@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "bcryptjs-react": "^2.4.6",
+    "bootstrap": "^5.3.3",
     "json-server": "^1.0.0-beta.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",

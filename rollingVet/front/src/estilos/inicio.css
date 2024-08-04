@@ -1,0 +1,31 @@
+:root {
+    --fuente-titulos: '';
+    --fuente-textos: '',;
+    --color-primero: #484041;
+    --color-segundo: #434371;
+    --color-tercero: #79AEA3;
+    --color-cuarto: #70EE9C;
+    --color-quinto: #B5F44A;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.seccion2 {
+    background: var(--color-tercero);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+
+
+
+.publicidad{
+    width: 100%;
+    height: 200px;
+}

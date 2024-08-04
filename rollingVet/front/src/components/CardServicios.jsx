@@ -1,15 +1,19 @@
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-function CardServicios() {
+function CardServicios({servicio}) {
+  const {especialidad, src}=servicio
+  console.log(especialidad);
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem' }} className=''>
       
       <Card.Body>
-        <Card.Title>{props.servicio}</Card.Title>
-        <Button variant="primary">Go somewhere</Button>
+        <Card.Title>{especialidad}</Card.Title>
+        {<Button variant="primary">Ver más</Button>}
       </Card.Body>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={src} />
     </Card>
   );
 }
