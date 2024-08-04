@@ -3,6 +3,9 @@ import AvatarCard from '../components/AvatarCard'
 import CardBody from 'react-bootstrap/esm/CardBody';
 import '../App.css'
 import '../estilos/nosotros.css'
+import FelipeAvatar from "../assets/media/FelipeAvatar.jpg"
+import AlbertoAvatar from "../assets/media/AlbertoAvatar.jpeg"
+import LuciaAvatar from "../assets/media/LuciaAvatar.jpeg"
 const Nosotros = () => {
 
 
@@ -10,15 +13,18 @@ const Nosotros = () => {
   let devs = [
     {
       nombre: "Alberto Mainardi",
-      descripcion: "Desarrollador FullStack"
+      descripcion: "Desarrollador FullStack",
+      imagen: AlbertoAvatar
     },
     {
       nombre: "Lucia Craven Garat",
-      descripcion: "Desarrollador FullStack"
+      descripcion: "Desarrollador FullStack",
+      imagen: LuciaAvatar
     },
     {
       nombre: "Felipe Raúl Sarco",
-      descripcion: "Desarrollador FullStack"
+      descripcion: "Desarrollador FullStack",
+      imagen: FelipeAvatar
     }
   ];
 
@@ -37,7 +43,7 @@ const Nosotros = () => {
           <h2 className='my-4 texto-color1 font-title'>Nuestros Profesionales</h2>
           <div className='d-flex flex-column align-items-center justify-content-center flex-md-row'>
             {devs.map((dev,index) => {
-              return <AvatarCard key={`avatarCard${index}`} nombre={dev.nombre} descripcion={dev.descripcion} />
+              return <AvatarCard key={`avatarCard${index}`} nombre={dev.nombre} descripcion={dev.descripcion} imagen={dev.imagen} />
             })}
           </div>
 

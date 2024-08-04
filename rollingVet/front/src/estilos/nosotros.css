@@ -17,6 +17,20 @@
     background-position: center center;
 }
 
+.img-avatar{
+  width: 20vw;
+  object-fit: contain;
+}
+
 .bg-color1-50{
     background-color: var(--bg-color1-opacidad-50);
+}
+
+@media (max-width:426px) {
+  
+  .img-avatar{
+    width: 50vw;
+    object-fit: contain;
+  }
+
 }
