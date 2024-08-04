@@ -1,7 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes } from "./utils/index";
+import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes,eliminarPaciente,actualizarPaciente } from "./utils/index";
 import NavbarApp from './common/NavbarApp';
 import Inicio from './views/Inicio';
 import Nosotros from './views/Nosotros';
@@ -40,7 +40,7 @@ function App() {
           <Route path='/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente}/>}/>
           <Route path='/registrarse' element={<Registrarse/>}/>
           <Route path='/planes' element={<Planes />}/>
-          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes/>}/>
+          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes eliminarPaciente={eliminarPaciente} crearPaciente={crearPaciente} traerPacientes={traerPacientes} actualizarPaciente={actualizarPaciente}/>}/>
           <Route path='/admin/gestionTurnos' element={<AdministrarTurnos/>}/>
           {/* <Route path='*' element={<ErrorScreen/>} /> */}
           
