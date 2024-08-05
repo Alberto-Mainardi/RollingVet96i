@@ -15,17 +15,65 @@
     
 }
 
+
+
+.encabezado {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .seccion2 {
     background: var(--color-tercero);
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 15px;
+    border: 2px solid var(--color-segundo);
+    margin-bottom: 30px;
+    border-radius: 50px 20px;
+    -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
 }
 
+.servicios {
+    margin-bottom: 50px;
+    background-color: whitesmoke;
+    border: 0px solid;
+    border-radius: 20px;
+    padding: 20px;
+}
 
+.profesionales {
+    margin-bottom: 30px;
+}
 
+.cardServicio {
+    -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+}
+
+.productos {
+    background-color: whitesmoke;
+    border: 0px solid;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
 
 .publicidad{
     width: 100%;
     height: 200px;
+    -webkit-box-shadow: 4px 7px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 7px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 4px 7px 5px 0px rgba(0,0,0,0.75);
+}
+
+.cardPlanes {
+    -webkit-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 11px 5px 0px rgba(0,0,0,0.75);
 }

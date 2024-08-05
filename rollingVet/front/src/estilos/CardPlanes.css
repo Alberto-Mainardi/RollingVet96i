@@ -1,0 +1,14 @@
+.cardPlan {
+    margin: 20px 20px
+    
+}
+
+.cardPlan:hover{
+    transform: scale(1.2);
+}
+
+
+.imgPlanes {
+    width: 100%;
+    display: block;
+}
