@@ -12,40 +12,44 @@ import Registrarse from './views/Registrarse';
 import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
 import { ContextoUsuario } from './components/ContextoUsuario';
+import RutasPrivadas from './routes/RutasPrivadas';
 
 function App() {
 
   const [user, setUser] = useState(
     {
       "nombre": "",
-      "apellido":"",
+      "apellido": "",
       "email": "",
       "telefono": "",
-      "estado":false,
-      "mascotasIDs":[],
-      "admin":false,
+      "estado": false,
+      "mascotasIDs": [],
+      "admin": false,
     }
   )
   console.log(user);
-  
+
 
   return (
-    <ContextoUsuario.Provider value={{user,setUser}}>
-    <BrowserRouter className='bg-dark'>
-      <NavbarApp/>
+    <ContextoUsuario.Provider value={{ user, setUser }}>
+      <BrowserRouter className='bg-dark'>
+        <NavbarApp />
         <Routes>
-          <Route path='/' element={<Inicio/>}/>
-          <Route path='/nosotros' element={<Nosotros />}/>
-          <Route path='/contacto' element={<Contacto />}/>
-          <Route path='/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente}/>}/>
-          <Route path='/registrarse' element={<Registrarse/>}/>
+          <Route path='/' element={<Inicio />} />
+          <Route path='/nosotros' element={<Nosotros />} />
+          <Route path='/contacto' element={<Contacto />} />
+          <Route path='/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente} />} />
+          <Route path='/registrarse' element={<Registrarse />} />
           <Route path='/planes' element={<Planes />}/>
-          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes eliminarPaciente={eliminarPaciente} crearPaciente={crearPaciente} traerPacientes={traerPacientes} actualizarPaciente={actualizarPaciente}/>}/>
-          <Route path='/admin/gestionTurnos' element={<AdministrarTurnos/>}/>
+          <Route element={<RutasPrivadas />}>
+            <Route path='/admin/gestionPacientes' element={<AdministrarPacientes  eliminarPaciente={eliminarPaciente} crearPaciente={crearPaciente} traerPacientes={traerPacientes} actualizarPaciente={actualizarPaciente}/>} />
+            <Route path='/admin/gestionTurnos' element={<AdministrarTurnos />} />
+          </Route>
+
           {/* <Route path='*' element={<ErrorScreen/>} /> */}
-          
+
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
     </ContextoUsuario.Provider>
   )
 }

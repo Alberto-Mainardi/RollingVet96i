@@ -9,7 +9,7 @@ const {user} = useContext(ContextoUsuario)
         return <Outlet/>
     } else {
         console.log("problemón");
-        <Navigate to="/dashboard" replace={true} />
+        return <Navigate to="/" replace/>
     }
 }
 
