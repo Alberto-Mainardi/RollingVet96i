@@ -7,45 +7,25 @@ import { Form, Button } from "react-bootstrap";
 
 
 
-const AdministrarTurnos = () => {
-
-  const crearTurno = ({cargarData}) => {
-    const {register, handleSubmit, formState:{errors}, reset}=useForm();
-    const addItem = (obj)=> {
-      cargarData(obj);
-      reset()
-    }
+const AdministrarTurnos = ({traerTurnos, crearTurno, actualizarTurno, eliminarTurno, validarTurno}) => {
+  
+  const { register, handleSubmit, formState: { errors }, reset } = useForm()
+  
+  let turnos = traerTurnos();
+  console.log(turnos);
+  const asignarTurno = async(obj) => {
+    
+    
   }
-
-  // const modeloTurno = 
-  // {
-  //     "paciente": 0,
-	// 		"propietario": "",
-	// 		"telefono": "",
-	// 		"sucursal": "",
-	// 		"motivoConsulta": "",
-	// 		"fecha": "",
-	// 		"hora": "",
-	// 		"estado": true
-  //   };
-
   
-  //   let turnosAsignados=[]
-  //   const crearTurno = async () => {
-  //   turnosAsignados = await traerTurnos();
-    
-  //   return turnosAsignados
-    
-    
-  // }
-  // crearTurno();
-  // console.log(turnosAsignados);
   
+
+
 
   return (
     <>
       <div>AdministrarTurnos</div>
-      <Form onSubmit={handleSubmit=(addItem)} method="POST">
+      <Form onSubmit={handleSubmit(asignarTurno)}>
         <Form.Control type="date" name="fecha"  className="bg-danger" />
         <Form.Select name="hora" >
           <option value="">9:00</option>
@@ -83,7 +63,7 @@ const AdministrarTurnos = () => {
         <Form.Control  type="number" placeholder="3515695548" name="telefono" />
       </Form.Group>
     
-      <Button type="submit" onClick={crearTurno()}>Crear Turno</Button> 
+      <Button type="submit">Crear Turno</Button> 
       </Form>
       
     </>
