@@ -8,7 +8,7 @@
         "telefono": 12345678,
         "contraseña": "123",
         "mascotasIDs": [{}],
-        "admin": false,
+        "admin": true,
         "estado": true
       },
       {
@@ -22,5 +22,27 @@
         "admin": false,
         "estado": true
       }
+    ],
+    "turnos": [
+      {
+      "paciente": 3,
+			"propietario": "Martín",
+			"telefono": "526235265",
+			"sucursal": "sucursal1",
+			"motivoConsulta": "tos",
+			"fecha": "12/06/24",
+			"hora": "18:30",
+			"estado": true
+      },
+      {
+        "paciente": 15,
+        "propietario": "Lucas",
+        "telefono": "526235265",
+        "sucursal": "sucursal2",
+        "motivoConsulta": "microchip",
+        "fecha": "12/07/24",
+        "hora": "19:30",
+        "estado": true
+        }
     ]
 }
