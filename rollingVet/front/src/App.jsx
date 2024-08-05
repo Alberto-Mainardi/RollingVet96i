@@ -13,6 +13,7 @@ import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
 import { ContextoUsuario } from './components/ContextoUsuario';
 import RutasPrivadas from './routes/RutasPrivadas';
+import CrearPaciente from './views/CrearPaciente';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
           <Route path='/registrarse' element={<Registrarse />} />
           <Route path='/planes' element={<Planes />}/>
           <Route element={<RutasPrivadas />}>
+            <Route path='/crearPaciente/:id' element={<CrearPaciente/>}/>
             <Route path='/admin/gestionPacientes' element={<AdministrarPacientes  eliminarPaciente={eliminarPaciente} crearPaciente={crearPaciente} traerPacientes={traerPacientes} actualizarPaciente={actualizarPaciente}/>} />
             <Route path='/admin/gestionTurnos' element={<AdministrarTurnos />} />
           </Route>

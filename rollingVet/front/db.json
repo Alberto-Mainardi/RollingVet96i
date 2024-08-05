@@ -1,3 +1,17 @@
 {
-  "pacientes": []
+  "pacientes": [
+    {
+      "id": "9e13",
+      "nombre": "pedro",
+      "apellido": "Juarez",
+      "email": "albertomainardi.14@gmail.com",
+      "telefono": 12345678,
+      "contraseña": "123",
+      "mascotasIDs": [
+        {}
+      ],
+      "admin": true,
+      "estado": true
+    }
+  ]
 }

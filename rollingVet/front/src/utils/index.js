@@ -60,3 +60,14 @@ export const eliminarPaciente = async (id) =>{
         
     }
 }
+
+export const traerUnPaciente = async (id) => {
+    try {
+        let paciente = await axios.get(`${urlPacientes}/${id}`);
+        let {data} = paciente;
+        console.log(data);
+        return data
+    } catch (error) {
+        console.error(error)
+    }
+}

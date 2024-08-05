@@ -5,18 +5,27 @@ import Button from 'react-bootstrap/Button'
 import { useState } from 'react';
 import { eliminarPaciente } from '../utils'
 import Modal from 'react-bootstrap/Modal';
-
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 const AdministrarPacientes = ({eliminarPaciente,crearPaciente,traerPacientes,actualizarPaciente}) => {
   
+  let pacienteEditar = {};
   const [show, setShow] = useState(false);
   const [pacientes,setPacientes] = useState([]);
-  
+  const {handleSubmit,register,reset,formState:{errors}} = useForm();
+
+  const handleShow = ()=> setShow(true);
+  const handleClose = ()=> setShow(false);
+
   useEffect(()=>{
     traerPacientes().then(data => {setPacientes(data)})
   },[])
   
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const pasarDatos = (obj)=>{
+    pacienteEditar = obj;
+    console.log(pacienteEditar);
+    
+  }
 
   return (
     <main>
@@ -36,7 +45,7 @@ const AdministrarPacientes = ({eliminarPaciente,crearPaciente,traerPacientes,act
 
             {
               pacientes.map((paciente)=>{
-                return <tr key={`PacienteRow${paciente.id}`}><td>{paciente.id}</td><td>{paciente.nombre}</td><td>{paciente.apellido}</td><td>{paciente.email}</td> <td>{paciente.telefono}</td><td><Button variant="warning" onClick={handleShow}>Editar</Button><Button variant="danger" onClick={()=>{eliminarPaciente(paciente.id);
+                return <tr key={`PacienteRow${paciente.id}`}><td>{paciente.id}</td><td>{paciente.nombre}</td><td>{paciente.apellido}</td><td>{paciente.email}</td> <td>{paciente.telefono}</td><td><Link className='btn btn-warning me-1' to={`/crearPaciente/${paciente.id}`} variant="warning">Editar</Link><Button variant="danger" onClick={()=>{eliminarPaciente(paciente.id);
                   location.reload();
                 }}>Borrar</Button></td></tr>
               })
@@ -47,21 +56,21 @@ const AdministrarPacientes = ({eliminarPaciente,crearPaciente,traerPacientes,act
         </tbody>
       </Table>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
+      <Table>
+      <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>IdDueño</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+      </Table>      
     </main>
   )
 }
