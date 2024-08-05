@@ -1,22 +1,22 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, Button } from "react-bootstrap";
-//import { validarTurno, crearTurno, traerTurnos, actualizarTurno, eliminarTurno } from "../utils/index";
-//import Swal from 'sweetalert2'
+import TablaTurnos from "../components/TablaTurnos"
+
 
 
 
 
 const AdministrarTurnos = ({traerTurnos, crearTurno, actualizarTurno, eliminarTurno, validarTurno}) => {
   
-  const { register, handleSubmit, formState: { errors }, reset } = useForm()
+  // const { register, handleSubmit, formState: { errors }, reset } = useForm()
   
-  let turnos = traerTurnos();
-  console.log(turnos);
-  const asignarTurno = async(obj) => {
+  // let turnos = traerTurnos();
+  // console.log(turnos);
+  // const asignarTurno = async(obj) => {
     
     
-  }
+  // }
   
   
 
@@ -25,7 +25,10 @@ const AdministrarTurnos = ({traerTurnos, crearTurno, actualizarTurno, eliminarTu
   return (
     <>
       <div>AdministrarTurnos</div>
-      <Form onSubmit={handleSubmit(asignarTurno)}>
+      <div>
+        <TablaTurnos/>
+      </div>
+      <Form >
         <Form.Control type="date" name="fecha"  className="bg-danger" />
         <Form.Select name="hora" >
           <option value="">9:00</option>
