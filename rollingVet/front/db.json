@@ -4,6 +4,7 @@
       "id": "9e13",
       "nombre": "alber",
       "apellido": "Mainardi",
+      "contraseña": "123",
       "email": "usuario@gmail.com",
       "telefono": 12345678,
       "estado": true,
@@ -12,7 +13,8 @@
         "123456",
         "7924",
         "4348",
-        "e7b2"
+        "e7b2",
+        "ffaa"
       ],
       "admin": false
     },
@@ -102,6 +104,13 @@
       "nombre": "Ernesto",
       "especie": "Tucán",
       "raza": "Brasileño",
+      "propietarioID": "9e13"
+    },
+    {
+      "id": "ffaa",
+      "nombre": "Manchita",
+      "especie": "Gato",
+      "raza": "Mestizo",
       "propietarioID": "9e13"
     }
   ]

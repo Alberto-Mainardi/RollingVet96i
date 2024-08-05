@@ -1,0 +1,24 @@
+:root{
+    --texto-color: #484041;
+    --bg-color1: rgba(238, 240, 225);
+    --bg-color1-opacidad-50:rgba(238, 240, 225, 0.5);
+    --bg-color2: #79aea379;
+    --bg-color2-opacidad-50: rgba(121, 174, 163, 0.5);
+    --color-principal: #484041;
+  }
+
+.bg-agregarMascota{
+    background-image: url("../assets/media/contactanosBackground4.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: right center;
+    height: 75vh;
+}
+.agregarMascotaContainer{
+    display: block;
+    margin: 3rem auto;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: var(--bg-color2-opacidad-50);
+}
