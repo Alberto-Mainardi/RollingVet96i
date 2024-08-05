@@ -67,6 +67,14 @@ export const crearMascota = async (obj) => {
     let mascota = await axios.post(urlMascotas, obj);
     return mascota
 }
+export const eliminarMascota = async (id) => {
+    try {
+        let mascota = await axios.delete(`${urlMascotas}/${id}`)
+        return mascota
+    } catch (error) {
+        console.error(error);
+    }
+}
 export const traerMascotas = async () => {
     try {
         let mascotas = await axios.get(`${urlMascotas}/`);

@@ -3,10 +3,9 @@ import { useContext, useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ContextoUsuario } from '../components/ContextoUsuario'
 import { Card, ListGroup, Dropdown } from 'react-bootstrap'
-import { traerMascotas } from '../utils'
 import DropdownMascotasUsuario from '../components/DropdownMascotasUsuario'
 
-const PaginaUsuario = ({ traerMascotas, traerMascotasUsuario, capturarUnPaciente }) => {
+const PaginaUsuario = ({ eliminarMascota, traerMascotasUsuario, }) => {
 
     const { user } = useContext(ContextoUsuario)
     const { nombre, apellido, email, telefono, id, mascotasIDs } = user;
@@ -49,7 +48,7 @@ const PaginaUsuario = ({ traerMascotas, traerMascotasUsuario, capturarUnPaciente
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
                             {mascotasUsuario.map((m, i) => {
-                                return <DropdownMascotasUsuario key={`mascota${i}`} mascota={m} paciente={user}></DropdownMascotasUsuario>
+                                return <DropdownMascotasUsuario key={`mascota${i}`} mascota={m} paciente={user} eliminarMascota={eliminarMascota}></DropdownMascotasUsuario>
                             })}
                             <Dropdown.Item >
                                 <NavLink className="nav-link" to="../agregarMascota">

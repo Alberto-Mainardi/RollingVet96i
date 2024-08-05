@@ -1,12 +1,13 @@
 import { useContext, useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Swal from "sweetalert2";
 import { ContextoUsuario } from '../components/ContextoUsuario';
 
-const agregarMascota = ({crearMascota, modificarPaciente}) => {
-    const {user, setUser} = useContext(ContextoUsuario);
+const agregarMascota = ({ crearMascota, modificarPaciente }) => {
+    const { user, setUser } = useContext(ContextoUsuario);
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const realizarMascota = async (obj) => {
@@ -18,16 +19,16 @@ const agregarMascota = ({crearMascota, modificarPaciente}) => {
             propietarioID: user.id
         }
         console.log(mascotaNueva);
-        
+
         let creandoMascota = await crearMascota(mascotaNueva);
-        const {data} = creandoMascota;
+        const { data } = creandoMascota;
         console.log(data);
-        
+
         user.mascotasIDs.push(data.id);
         setUser(user);
         let modificandoPaciente = await modificarPaciente(user.id, user);
         console.log(modificandoPaciente);
-        
+
         Swal.fire({
             title: "Mascota Creada Exitosamente!",
             text: "",
@@ -69,10 +70,15 @@ const agregarMascota = ({crearMascota, modificarPaciente}) => {
                         {errors.email?.message}
                     </Form.Text>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="success" type="submit">
                     Añadir Mascota!
                 </Button>
             </Form>
+            <Button variant="primary" type="submit">
+                <NavLink className="nav-link" to="../userpage">
+                    Volver a Mi Cuenta
+                </NavLink>
+            </Button>
         </div>
     )
 }

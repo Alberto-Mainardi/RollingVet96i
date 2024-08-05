@@ -2,7 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { RutasAdmin, RutasPaciente, RutasInvitado } from './routes/RutasPrivadas'
-import { validarPaciente, crearPaciente, modificarPaciente,ingresoPaciente, traerPacientes, capturarUnPaciente, crearMascota, traerMascotas, traerMascotasUsuario } from "./utils/index";
+import { validarPaciente, crearPaciente, modificarPaciente,ingresoPaciente, traerPacientes, capturarUnPaciente, crearMascota, eliminarMascota,traerMascotas, traerMascotasUsuario } from "./utils/index";
 import NavbarApp from './common/NavbarApp';
 import Inicio from './views/Inicio';
 import Nosotros from './views/Nosotros';
@@ -44,7 +44,7 @@ function App() {
           <Route path='/planes' element={<Planes />}/>
 
           <Route path='/user' element={<RutasPaciente/>}>
-            <Route path='/user/userpage' element={<PaginaUsuario traerMascotas={traerMascotas} traerMascotasUsuario={traerMascotasUsuario} capturarUnPaciente={capturarUnPaciente}/>}/>
+            <Route path='/user/userpage' element={<PaginaUsuario eliminarMascota={eliminarMascota} traerMascotasUsuario={traerMascotasUsuario}/>}/>
             <Route path='/user/agregarMascota' element={<AgregarMascota crearMascota={crearMascota} modificarPaciente={modificarPaciente}/>}/>
 
           </Route>

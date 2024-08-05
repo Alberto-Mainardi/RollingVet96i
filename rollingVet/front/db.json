@@ -11,7 +11,8 @@
         "12345",
         "123456",
         "7924",
-        "4348"
+        "4348",
+        "e7b2"
       ],
       "admin": false
     },
@@ -19,34 +20,19 @@
       "id": "9e15",
       "nombre": "alber",
       "apellido": "Mainardi",
+      "contraseña": "123",
       "email": "usuario@gmail.com",
       "telefono": 12345678,
-      "contraseña": "123",
+      "estado": true,
       "mascotasIDs": [
         "12345",
-        "123456"
+        "123456",
+        "bf2e"
       ],
-      "admin": false,
-      "estado": true
+      "admin": false
     }
   ],
   "mascotas": [
-    {
-      "id": "12345",
-      "nombre": "Manchita",
-      "especie": "Gato",
-      "raza": "Mestizo",
-      "propietarioID": "9e13",
-      "state": true
-    },
-    {
-      "id": "123456",
-      "nombre": "Pepe",
-      "especie": "Perro",
-      "raza": "Golden Retriever",
-      "propietarioID": "9e13",
-      "state": true
-    },
     {
       "id": "1234567",
       "nombre": "Luis",
@@ -102,6 +88,20 @@
       "nombre": "Azul",
       "especie": "Perro",
       "raza": "Labrador",
+      "propietarioID": "9e13"
+    },
+    {
+      "id": "bf2e",
+      "nombre": "José",
+      "especie": "Gato",
+      "raza": "Mestizo",
+      "propietarioID": "9e15"
+    },
+    {
+      "id": "e7b2",
+      "nombre": "Ernesto",
+      "especie": "Tucán",
+      "raza": "Brasileño",
       "propietarioID": "9e13"
     }
   ]
