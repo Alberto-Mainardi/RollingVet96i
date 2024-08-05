@@ -1,7 +1,8 @@
 import './App.css'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes } from "./utils/index";
+import { RutasAdmin, RutasPaciente, RutasInvitado } from './routes/RutasPrivadas'
+import { validarPaciente, crearPaciente, modificarPaciente,ingresoPaciente, traerPacientes, capturarUnPaciente, crearMascota, eliminarMascota,traerMascotas, traerMascotasUsuario } from "./utils/index";
 import NavbarApp from './common/NavbarApp';
 import Inicio from './views/Inicio';
 import Nosotros from './views/Nosotros';
@@ -11,8 +12,10 @@ import Ingresar from './views/Ingresar';
 import Registrarse from './views/Registrarse';
 import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
+import PaginaUsuario from './views/PaginaUsuario';
+import AgregarMascota from './views/AgregarMascota';
 import { ContextoUsuario } from './components/ContextoUsuario';
-import RutasPrivadas from './routes/RutasPrivadas';
+
 
 function App() {
 
@@ -35,17 +38,30 @@ function App() {
       <BrowserRouter className='bg-dark'>
         <NavbarApp />
         <Routes>
-          <Route path='/' element={<Inicio />} />
-          <Route path='/nosotros' element={<Nosotros />} />
-          <Route path='/contacto' element={<Contacto />} />
-          <Route path='/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente} />} />
-          <Route path='/registrarse' element={<Registrarse />} />
+          <Route path='/' element={<Inicio/>}/>
+          <Route path='/nosotros' element={<Nosotros />}/>
+          <Route path='/contacto' element={<Contacto />}/>
           <Route path='/planes' element={<Planes />}/>
-          <Route element={<RutasPrivadas />}>
-            <Route path='/admin/gestionPacientes' element={<AdministrarPacientes />} />
-            <Route path='/admin/gestionTurnos' element={<AdministrarTurnos />} />
+
+          <Route path='/user' element={<RutasPaciente/>}>
+            <Route path='/user/userpage' element={<PaginaUsuario eliminarMascota={eliminarMascota} traerMascotasUsuario={traerMascotasUsuario}/>}/>
+            <Route path='/user/agregarMascota' element={<AgregarMascota crearMascota={crearMascota} modificarPaciente={modificarPaciente}/>}/>
+
           </Route>
 
+          <Route path='/guest' element ={<RutasInvitado/>}>
+            <Route path='/guest/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente}/>}/>
+            <Route path='/guest/registrarse' element={<Registrarse/>}/>
+          </Route>
+          
+          
+          
+
+          <Route path='/admin' element={<RutasAdmin/>}>
+            <Route path='/admin/gestionPacientes' element={<AdministrarPacientes/>}/>
+            <Route path='/admin/gestionTurnos' element={<AdministrarTurnos/>}/>
+          </Route>
+          
           {/* <Route path='*' element={<ErrorScreen/>} /> */}
 
         </Routes>

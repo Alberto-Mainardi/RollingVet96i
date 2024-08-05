@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import {useNavigate, Link, NavLink } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import administrarPacienteLogo from '../assets/media/administrarPacienteLogo.svg'
 import administrarTurnoLogo from '../assets/media/administrarTurnosLogo.svg'
 import { ContextoUsuario } from '../components/ContextoUsuario';
+import Swal from 'sweetalert2';
 const NavbarApp = () => {
     /*
     const responsiveNavbarNav = document.querySelector('#responsive-navbar-nav');
@@ -20,17 +21,39 @@ const NavbarApp = () => {
         console.log(responsiveNavbarNav);
     }
         */
-    
+    const navigate = useNavigate();
     const {user, setUser} = useContext(ContextoUsuario);
     const logout = () => {
-        setUser(
-            {
-                "user": "",
-                "password": "",
-                "email": "",
-                "admin":false
-              }
-        )
+        let timerInterval;
+        
+        Swal.fire({
+          title: "Sesión Cerrada Exitosamente!",
+          text: "En breves te redireccionaremos a la página principal",
+          icon: "success",
+          timer: 1400,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            timerInterval = setInterval(() => {
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+            navigate('/');
+            setUser(
+              {
+                  "id": "",
+                  "nombre": "",
+                  "apellido": "",
+                  "email": "",
+                  "telefono": "",
+                  "estado": false,
+                  "mascotasIDs": [],
+                  "admin": false,
+                }
+          );
+        }
+        });
     }
     return (
 
@@ -66,11 +89,17 @@ const NavbarApp = () => {
                             <NavLink className="nav-link text-white fs-5" onClick={logout}>
                                 Cerrar Sesión
                             </NavLink>
+                            <NavLink className="nav-link text-white fs-5" to="/user/userpage">
+                                Mi cuenta
+                            </NavLink>
+                            <NavLink className="nav-link text-white fs-5" to="user/agregarMascota">
+                                Añadir mascota
+                            </NavLink>
                         </> : <>
-                            <NavLink className="nav-link  text-white fs-5" to="/ingresar">
+                            <NavLink className="nav-link  text-white fs-5" to="/guest/ingresar">
                                 Ingresar
                             </NavLink>
-                            <NavLink className="nav-link  text-white fs-5" to="/registrarse">
+                            <NavLink className="nav-link  text-white fs-5" to="/guest/registrarse">
                                 Registrarse
                             </NavLink>
                         </>
