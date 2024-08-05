@@ -92,6 +92,9 @@ const NavbarApp = () => {
                             <NavLink className="nav-link text-white fs-5" to="/user/userpage">
                                 Mi cuenta
                             </NavLink>
+                            <NavLink className="nav-link text-white fs-5" to="user/agregarMascota">
+                                Añadir mascota
+                            </NavLink>
                         </> : <>
                             <NavLink className="nav-link  text-white fs-5" to="/guest/ingresar">
                                 Ingresar

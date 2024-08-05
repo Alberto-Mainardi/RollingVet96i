@@ -2,7 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { RutasAdmin, RutasPaciente, RutasInvitado } from './routes/RutasPrivadas'
-import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes } from "./utils/index";
+import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes, capturarUnPaciente, crearMascota, traerMascotas, traerMascotasUsuario } from "./utils/index";
 import NavbarApp from './common/NavbarApp';
 import Inicio from './views/Inicio';
 import Nosotros from './views/Nosotros';
@@ -13,7 +13,9 @@ import Registrarse from './views/Registrarse';
 import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
 import PaginaUsuario from './views/PaginaUsuario';
+import AgregarMascota from './views/AgregarMascota';
 import { ContextoUsuario } from './components/ContextoUsuario';
+
 
 function App() {
 
@@ -42,7 +44,9 @@ function App() {
           <Route path='/planes' element={<Planes />}/>
 
           <Route path='/user' element={<RutasPaciente/>}>
-            <Route path='/user/userpage' element={<PaginaUsuario />}/>
+            <Route path='/user/userpage' element={<PaginaUsuario traerMascotas={traerMascotas} traerMascotasUsuario={traerMascotasUsuario} capturarUnPaciente={capturarUnPaciente}/>}/>
+            <Route path='/user/agregarMascota' element={<AgregarMascota/>}/>
+
           </Route>
 
           <Route path='/guest' element ={<RutasInvitado/>}>

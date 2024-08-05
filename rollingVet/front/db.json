@@ -7,7 +7,7 @@
         "email": "albertomainardi.14@gmail.com",
         "telefono": 12345678,
         "contraseña": "123",
-        "mascotasIDs": [{}],
+        "mascotasIDs": ["12423kjaf", "sadfkja2", "1231231d"],
         "admin": false,
         "estado": true
       },
@@ -18,9 +18,35 @@
         "email": "usuario@gmail.com",
         "telefono": 12345678,
         "contraseña": "123",
-        "mascotasIDs": [{}],
+        "mascotasIDs": ["12345", "123456"],
         "admin": false,
         "estado": true
+      }
+    ],
+    "mascotas":[
+      {
+        "id":"12345",
+        "nombre":"Manchita",
+        "especie":"Gato",
+        "raza":"Mestizo",
+        "propietarioID":"9e13",
+        "state":true
+      },
+      {
+        "id":"123456",
+        "nombre":"Pepe",
+        "especie":"Perro",
+        "raza":"Golden Retriever",
+        "propietarioID":"9e13",
+        "state":true
+      },
+      {
+        "id":"1234567",
+        "nombre":"Luis",
+        "especie":"Ganzo",
+        "raza":"Golden Retriever",
+        "propietarioID":"765",
+        "state":true
       }
     ]
 }

@@ -1,4 +1,5 @@
 const urlPacientes = "http://localhost:3000/pacientes";
+const urlMascotas = "http://localhost:3000/mascotas";
 import axios from 'axios';
 import { compareSync } from 'bcryptjs-react';
 
@@ -26,6 +27,14 @@ export const traerPacientes = async () => {
         console.error(error)
     }
 }
+export const capturarUnPaciente = async (id) => {
+    try {
+        let paciente = await axios.get(`${urlPacientes}/${id}`);
+        return paciente;
+    } catch (error) {
+        console.error(error);
+    }
+}
 export const ingresoPaciente = async (obj) => {
     let pacientes = await traerPacientes();
     let paciente = pacientes.find(paciente => {
@@ -37,5 +46,32 @@ export const ingresoPaciente = async (obj) => {
     if (paciente?.email && /* compareSync(obj.contraseña, paciente.contraseña) */ paciente?.contraseña ) {
         console.log(paciente);
         return paciente
+    }
+}
+
+export const crearMascota = async (obj) => {
+    let mascota = await axios.post(urlMascotas, obj);
+    return mascota
+}
+export const traerMascotas = async () => {
+    try {
+        let mascotas = await axios.get(`${urlMascotas}/`);
+        let {data} = mascotas;
+        return data
+    } catch (error) {
+        console.error(error)
+    }
+}
+export const traerMascotasUsuario = async (IDmascotasUsuario) => {
+    try {
+        const mascotas = await traerMascotas();
+        const arrayMascotasUsuario = mascotas.filter((mascota) => {
+            if (IDmascotasUsuario.includes(mascota.id)) {
+                return mascota
+            }
+        })
+        return arrayMascotasUsuario
+    } catch (error) {
+        console.log(error);
     }
 }
