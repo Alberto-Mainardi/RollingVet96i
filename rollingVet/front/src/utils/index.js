@@ -69,6 +69,15 @@ export const traerTurnos = async () => {
   }
 };
 
+export const traerUnTurno = async (id) => {
+    try {
+        let turno = await axios.get(`${urlTurnos}/${id}`);
+        return turno;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const crearTurno = async (obj) => {
   try {
     let turno = await axios.post(urlTurnos, obj);

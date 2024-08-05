@@ -1,7 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes, traerTurnos, crearTurno, actualizarTurno, eliminarTurno, validarTurno } from "./utils/index";
+import { validarPaciente, crearPaciente, ingresoPaciente, traerPacientes, traerTurnos, traerUnTurno,crearTurno, actualizarTurno, eliminarTurno, validarTurno } from "./utils/index";
 import NavbarApp from './common/NavbarApp';
 import Inicio from './views/Inicio';
 import Nosotros from './views/Nosotros';
@@ -11,7 +11,9 @@ import Ingresar from './views/Ingresar';
 import Registrarse from './views/Registrarse';
 import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
+import ModificarTurno from './views/ModificarTurno';
 import { ContextoUsuario } from './components/ContextoUsuario';
+
 
 function App() {
 
@@ -41,7 +43,8 @@ function App() {
           <Route path='/registrarse' element={<Registrarse/>}/>
           <Route path='/planes' element={<Planes />}/>
           <Route path='/admin/gestionPacientes' element={<AdministrarPacientes />}/>
-          <Route path='/admin/gestionTurnos' element={<AdministrarTurnos traerTurnos={traerTurnos} crearTurno={crearTurno} actualizarTurno={actualizarTurno} validarTurno={validarTurno} eliminarTurno={eliminarTurno}/>}/>
+          <Route path='/admin/gestionTurnos' element={<AdministrarTurnos traerTurnos={traerTurnos} crearTurno={crearTurno} eliminarTurno={eliminarTurno}/>}/>
+          <Route path='/admin/modificarTurno/:id' element={ <ModificarTurno actualizarTurno={actualizarTurno} traerUnTurno={traerUnTurno}/>} />
           {/* <Route path='*' element={<ErrorScreen/>} /> */}
           
         </Routes>
