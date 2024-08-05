@@ -16,6 +16,16 @@ export const crearPaciente = async (obj) => {
     let paciente = await axios.post(urlPacientes, obj);
     return paciente
 }
+
+export const modificarPaciente = async (id, obj) => {
+    try {
+        let paciente = await axios.put(`${urlPacientes}/${id}`, obj);
+        return paciente
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const traerPacientes = async () => {
     try {
         let pacientes = await axios.get(`${urlPacientes}/`);
@@ -48,6 +58,10 @@ export const ingresoPaciente = async (obj) => {
         return paciente
     }
 }
+
+
+
+// Mascotas
 
 export const crearMascota = async (obj) => {
     let mascota = await axios.post(urlMascotas, obj);

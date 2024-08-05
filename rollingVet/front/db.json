@@ -1,52 +1,108 @@
 {
-    "pacientes": [
-      {
-        "id": "9e13",
-        "nombre": "alber",
-        "apellido": "Mainardi",
-        "email": "albertomainardi.14@gmail.com",
-        "telefono": 12345678,
-        "contraseña": "123",
-        "mascotasIDs": ["12423kjaf", "sadfkja2", "1231231d"],
-        "admin": false,
-        "estado": true
-      },
-      {
-        "id": "9e13",
-        "nombre": "alber",
-        "apellido": "Mainardi",
-        "email": "usuario@gmail.com",
-        "telefono": 12345678,
-        "contraseña": "123",
-        "mascotasIDs": ["12345", "123456"],
-        "admin": false,
-        "estado": true
-      }
-    ],
-    "mascotas":[
-      {
-        "id":"12345",
-        "nombre":"Manchita",
-        "especie":"Gato",
-        "raza":"Mestizo",
-        "propietarioID":"9e13",
-        "state":true
-      },
-      {
-        "id":"123456",
-        "nombre":"Pepe",
-        "especie":"Perro",
-        "raza":"Golden Retriever",
-        "propietarioID":"9e13",
-        "state":true
-      },
-      {
-        "id":"1234567",
-        "nombre":"Luis",
-        "especie":"Ganzo",
-        "raza":"Golden Retriever",
-        "propietarioID":"765",
-        "state":true
-      }
-    ]
+  "pacientes": [
+    {
+      "id": "9e13",
+      "nombre": "alber",
+      "apellido": "Mainardi",
+      "email": "usuario@gmail.com",
+      "telefono": 12345678,
+      "estado": true,
+      "mascotasIDs": [
+        "12345",
+        "123456",
+        "7924",
+        "4348"
+      ],
+      "admin": false
+    },
+    {
+      "id": "9e15",
+      "nombre": "alber",
+      "apellido": "Mainardi",
+      "email": "usuario@gmail.com",
+      "telefono": 12345678,
+      "contraseña": "123",
+      "mascotasIDs": [
+        "12345",
+        "123456"
+      ],
+      "admin": false,
+      "estado": true
+    }
+  ],
+  "mascotas": [
+    {
+      "id": "12345",
+      "nombre": "Manchita",
+      "especie": "Gato",
+      "raza": "Mestizo",
+      "propietarioID": "9e13",
+      "state": true
+    },
+    {
+      "id": "123456",
+      "nombre": "Pepe",
+      "especie": "Perro",
+      "raza": "Golden Retriever",
+      "propietarioID": "9e13",
+      "state": true
+    },
+    {
+      "id": "1234567",
+      "nombre": "Luis",
+      "especie": "Ganzo",
+      "raza": "Golden Retriever",
+      "propietarioID": "765",
+      "state": true
+    },
+    {
+      "id": "3c16",
+      "nombre": "Juan",
+      "especie": "Cocodrilo",
+      "raza": "normal",
+      "propietarioID": "9e13"
+    },
+    {
+      "id": "b87f",
+      "nombre": "Ortega",
+      "especie": "Delfín",
+      "raza": "no",
+      "propietarioID": "9e13"
+    },
+    {
+      "id": "5cf9",
+      "nombre": "Luis",
+      "especie": "Delfín",
+      "raza": "12341",
+      "propietarioID": "9e13"
+    },
+    {
+      "id": "820d",
+      "nombre": "gfhdfgh",
+      "especie": "Delfín",
+      "raza": "123",
+      "propietarioID": "9e13"
+    },
+    {
+      "id": "6d2f",
+      "nombre": "Bici no MTB.",
+      "especie": "Perro",
+      "raza": "Golden",
+      "propietarioID": "9e13"
+    },
+    {
+      "id": "7924",
+      "nombre": "Lopez",
+      "especie": "Gallo",
+      "raza": "Ranchero",
+      "propietarioID": "9e13"
+    },
+    {
+      "id": "4348",
+      "nombre": "Azul",
+      "especie": "Perro",
+      "raza": "Labrador",
+      "propietarioID": "9e13"
+    }
+  ]
 }
