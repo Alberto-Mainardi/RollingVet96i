@@ -27,7 +27,6 @@ function App() {
     }
   )
   console.log(user);
-
   
 
   return (
@@ -41,8 +40,8 @@ function App() {
           <Route path='/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente}/>}/>
           <Route path='/registrarse' element={<Registrarse/>}/>
           <Route path='/planes' element={<Planes />}/>
-          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes traerTurnos={traerTurnos} crearTurno={crearTurno} actualizarTurno={actualizarTurno} validarTurno={validarTurno} eliminarTurno={eliminarTurno}/>}/>
-          <Route path='/admin/gestionTurnos' element={<AdministrarTurnos />}/>
+          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes />}/>
+          <Route path='/admin/gestionTurnos' element={<AdministrarTurnos traerTurnos={traerTurnos} crearTurno={crearTurno} actualizarTurno={actualizarTurno} validarTurno={validarTurno} eliminarTurno={eliminarTurno}/>}/>
           {/* <Route path='*' element={<ErrorScreen/>} /> */}
           
         </Routes>
