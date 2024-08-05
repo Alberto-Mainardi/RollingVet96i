@@ -2,7 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { RutasAdmin, RutasPaciente, RutasInvitado } from './routes/RutasPrivadas'
-import { validarPaciente, crearPaciente, modificarPaciente,ingresoPaciente, traerPacientes, capturarUnPaciente, crearMascota, eliminarMascota,traerMascotas, traerMascotasUsuario } from "./utils/index";
+import { validarPaciente, crearPaciente, modificarPaciente,ingresoPaciente, traerPacientes, capturarUnPaciente, crearMascota, eliminarMascota,traerMascotas, traerMascotasUsuario, traerTurnos, traerUnTurno,crearTurno, actualizarTurno, eliminarTurno, validarTurno } from "./utils/index";
 import NavbarApp from './common/NavbarApp';
 import Inicio from './views/Inicio';
 import Nosotros from './views/Nosotros';
@@ -14,6 +14,7 @@ import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
 import PaginaUsuario from './views/PaginaUsuario';
 import AgregarMascota from './views/AgregarMascota';
+import ModificarTurno from './views/ModificarTurno';
 import { ContextoUsuario } from './components/ContextoUsuario';
 
 
@@ -43,6 +44,7 @@ function App() {
           <Route path='/contacto' element={<Contacto />}/>
           <Route path='/planes' element={<Planes />}/>
 
+
           <Route path='/user' element={<RutasPaciente/>}>
             <Route path='/user/userpage' element={<PaginaUsuario eliminarMascota={eliminarMascota} traerMascotasUsuario={traerMascotasUsuario}/>}/>
             <Route path='/user/agregarMascota' element={<AgregarMascota crearMascota={crearMascota} modificarPaciente={modificarPaciente}/>}/>
@@ -53,13 +55,14 @@ function App() {
             <Route path='/guest/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente}/>}/>
             <Route path='/guest/registrarse' element={<Registrarse/>}/>
           </Route>
+          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes />}/>
+          <Route path='/admin/gestionTurnos' element={<AdministrarTurnos traerTurnos={traerTurnos} crearTurno={crearTurno} eliminarTurno={eliminarTurno}/>}/>
+          <Route path='/admin/modificarTurno/:id' element={ <ModificarTurno actualizarTurno={actualizarTurno} traerUnTurno={traerUnTurno}/>} />
+          {/* <Route path='*' element={<ErrorScreen/>} /> */}
           
           
-          
-
           <Route path='/admin' element={<RutasAdmin/>}>
-            <Route path='/admin/gestionPacientes' element={<AdministrarPacientes/>}/>
-            <Route path='/admin/gestionTurnos' element={<AdministrarTurnos/>}/>
+            {/* AQUI HAY QUE PONER LAS RUTAS DEL ADMIN  */}
           </Route>
           
           {/* <Route path='*' element={<ErrorScreen/>} /> */}

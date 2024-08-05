@@ -4,7 +4,7 @@
       "id": "9e13",
       "nombre": "alber",
       "apellido": "Mainardi",
-      "contraseña": "123",
+      "contraseña": "1234",
       "email": "usuario@gmail.com",
       "telefono": 12345678,
       "estado": true,
@@ -29,9 +29,10 @@
         "12345",
         "123456",
         "bf2e",
-        "45dc"
+        "45dc",
+        "543e"
       ],
-      "admin": false
+      "admin": true
     }
   ],
   "mascotas": [
@@ -51,67 +52,12 @@
       "propietarioID": "9e13"
     },
     {
-      "id": "b87f",
-      "nombre": "Ortega",
-      "especie": "Delfín",
-      "raza": "no",
-      "propietarioID": "9e13"
-    },
-    {
-      "id": "5cf9",
-      "nombre": "Luis",
-      "especie": "Delfín",
-      "raza": "12341",
-      "propietarioID": "9e13"
-    },
-    {
-      "id": "820d",
-      "nombre": "gfhdfgh",
-      "especie": "Delfín",
-      "raza": "123",
-      "propietarioID": "9e13"
-    },
-    {
-      "id": "6d2f",
-      "nombre": "Bici no MTB.",
-      "especie": "Perro",
-      "raza": "Golden",
-      "propietarioID": "9e13"
-    },
-    {
-      "id": "7924",
-      "nombre": "Lopez",
-      "especie": "Gallo",
-      "raza": "Ranchero",
-      "propietarioID": "9e13"
-    },
-    {
-      "id": "4348",
-      "nombre": "Azul",
-      "especie": "Perro",
-      "raza": "Labrador",
-      "propietarioID": "9e13"
-    },
-    {
-      "id": "bf2e",
-      "nombre": "José",
-      "especie": "Gato",
-      "raza": "Mestizo",
-      "propietarioID": "9e15"
-    },
-    {
-      "id": "e7b2",
-      "nombre": "Ernesto",
-      "especie": "Tucán",
+      "id": "543e",
+      "nombre": "Paco",
+      "especie": "Loro",
       "raza": "Brasileño",
-      "propietarioID": "9e13"
-    },
-    {
-      "id": "ffaa",
-      "nombre": "Manchita",
-      "especie": "Gato",
-      "raza": "Mestizo",
-      "propietarioID": "9e13"
+      "propietarioID": "9e15"
     }
-  ]
+  ],
+  "turnos": []
 }
