@@ -81,15 +81,24 @@ const ModificarTurno = ({ actualizarTurno, traerUnTurno }) => {
                     {...register("hora"
                     )}>
                     <option value="9:00">9:00</option>
-                    <option value="9:30">9:30</option>
-                    <option value="10:00">10:00</option>
-                    <option value="10:30">10:30</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:30">11:30</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:30">12:30</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:30">13:30</option>
+              <option value="9:30">9:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">13:30</option>
+              <option value="14:30">13:30</option>
+              <option value="15:00">13:30</option>
+              <option value="15:30">13:30</option>
+              <option value="16:00">13:30</option>
+              <option value="16:30">13:30</option>
+              <option value="17:00">13:30</option>
+              <option value="17:30">13:30</option>
+              <option value="18:00">13:30</option>
                 </Form.Select>
                 <Form.Select
                     name="sucursal"
@@ -109,7 +118,7 @@ const ModificarTurno = ({ actualizarTurno, traerUnTurno }) => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="input-mascota">
                     <Form.Label>Mascota</Form.Label>
-                    <Form.Control type="text" placeholder="perro Labrador" name="mascota" {...register("mascota",
+                    <Form.Control type="text" placeholder="nombre mascota" name="mascota" {...register("mascota",
                         { required: "La mascota es un campo obligatorio" }
                     )} />
                 </Form.Group>

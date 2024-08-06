@@ -1,18 +1,18 @@
-.imgProf{
-    object-fit: cover;
-    height: 300px;
-    max-width: 100%;
-    display: block;
-    opacity: 0.8;
+.imgProf {
+  height: 400px;
+  width: 100%;
+  display: block;
+  opacity: 0.8;
+  object-fit: cover;
 }
 
 .textoProf {
-    font-size: 2vw;
-    font-weight:bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2vw;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .tituloProf {
-    font-size: 4vw;
-    font-weight: bold;
+  font-size: 4vw;
+  font-weight: bold;
 }

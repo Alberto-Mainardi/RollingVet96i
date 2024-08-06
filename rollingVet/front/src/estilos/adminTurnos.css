@@ -7,3 +7,10 @@ th, td{
 th{
     background-color: var(--bg-color2)!important
 }
+
+.bg-adminturnos {
+    background-image: url("../assets/media/contactanosBackground4.jpg");
+    background-size:contain;
+    background-attachment: fixed;
+    background-position: center center;
+}

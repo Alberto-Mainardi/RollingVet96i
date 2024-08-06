@@ -5,8 +5,8 @@ import DataCard from "../components/DataCard";
 import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Error from "../components/Error";
-import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+import React from "react";
+import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import CardServicios from "../components/CardServicios";
@@ -15,14 +15,11 @@ import { Link } from "react-router-dom";
 import "../estilos/inicio.css";
 import ImageCardProf from "../components/ImageCardProf";
 import ImageCardEncabezado from "../components/ImageCardEncabezado";
-
-//import "@fortawesome/fontawesome-svg-core/styles.css";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ComentariosCard from "../components/ComentariosCard";
 
 const Inicio = () => {
-
   const [weatherData, setWeatherData] = useState({});
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
 
   let servicios = [
     {
@@ -50,7 +47,6 @@ const Inicio = () => {
       src: "https://www.club-caza.com/img/article/z/jd9bvg7y.webp",
     },
   ];
-  //console.log(servicios);
 
   let planes = [
     {
@@ -74,9 +70,9 @@ const Inicio = () => {
     {
       titulo: "NUESTROS PROFESIONALES",
       texto:
-        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam exalias pariatur soluta tempora modi, corrupti veniam minimaconsequatur quod eligendi accusamus autem, voluptates sequireiciendis. Non molestias sapiente commodi",
+        "Somos el equipo desarrollador de la web de RollingVet, nos centramos en el trabajo en equipo basado en la comunicacion, respeto y organizacion. Juntos esperamos brindarte el mejor servicio para que puedas cuidar a tus mascotas de la mejor manera desde la comodidad de tu casa. Gracias por confiar en nosotros.",
       imagen:
-        "https://imagenes.heraldo.es/files/image_1920_1080/uploads/imagenes/2023/10/19/veterinario-gsc1.jpeg",
+        "https://www.spmas.es/wp-content/uploads/2023/06/Clinica-veterinaria.jpg",
     },
   ];
 
@@ -87,27 +83,46 @@ const Inicio = () => {
     imagen:
       "https://www.galachoveterinarios.com/wp-content/uploads/2016/03/IMG_5701x-min-1903x1050.jpg",
   };
-  console.log(datosEncabezado);
+
+  let comentarios = [
+    {
+      opinion:
+        "La experiencia en Rolling Vet fue increíble. Mi mascota recibió una atención personalizada y cariñosa que la hizo sentir muy cómoda. El equipo veterinario es amable y muy profesional, explicando todo con claridad y resolviendo todas mis dudas. ¡Sin duda los recomiendo!",
+      puntuacion: "5",
+    },
+    {
+      opinion:
+        "Necesitaba atención de emergencia para mi gato y Rolling Vet fue mi salvación. Me atendieron de inmediato, realizaron todos los exámenes necesarios y me dieron un diagnóstico preciso. La rapidez y eficiencia con la que trabajaron me dejó muy tranquila. ¡Excelente servicio!",
+      puntuacion: "4",
+    },
+    {
+      opinion:
+        "Además de la atención veterinaria básica, en Rolling Vet ofrecen una gran variedad de servicios adicionales como peluquería y adiestramiento. Mi perro salió feliz y reluciente después de su visita. ¡Es una clínica completa y muy cómoda para las mascotas!",
+      puntuacion: "4.5",
+    },
+  ];
 
   return (
     <>
       <section className="container justify-content-center">
-      <main className="container my-5">
-        <div className="weatherCard">
-        { !error ? (
-          <DataCard weatherData={weatherData}></DataCard>
-        ) : (
-          <Error />
-        )}
-        <WeatherForm setWeatherData={setWeatherData} setError={setError}></WeatherForm>
-        </div>
-        
-      </main>
-      <footer className="bg-dark text-light text-center py-4">
-        <p>&copy; Todos los derechos reservados</p>
-      </footer>
-  
-        <div className="encabezado row">
+        <main className="container my-5">
+          <div className="weatherCard">
+            {!error ? (
+              <DataCard weatherData={weatherData}></DataCard>
+            ) : (
+              <Error />
+            )}
+            <WeatherForm
+              setWeatherData={setWeatherData}
+              setError={setError}
+            ></WeatherForm>
+          </div>
+        </main>
+        <footer className="bg-dark text-light text-center py-4">
+          <p>&copy; Todos los derechos reservados</p>
+        </footer>
+
+        <div className="encabezado row mx-auto">
           <ImageCardEncabezado
             className="col-md-2"
             direc1={datosEncabezado.direc1}
@@ -120,7 +135,7 @@ const Inicio = () => {
         <div className="cuidadoYcariño row justify-content-center">
           <div className="seccion2 col-md-10 col-sm-12">
             <div>{/* <FontAwesomeIcon icon="fa-thin fa-paw" /> */}</div>
-            <p>CUIDADO Y CARIÑO EN CADA VISITA</p>
+            <h1>CUIDADO Y CARIÑO EN CADA VISITA</h1>
 
             <Button as={Link} to="/contacto" variant="dark">
               CONTACTO
@@ -158,39 +173,36 @@ const Inicio = () => {
         <div className="productos">
           <h1>NUESTROS PRODUCTOS</h1>
 
-          <div className="row">
-            <div className="d-flex flex-column justify-content-center col-md-4 col-sm-8">
-              <Button>ALIMENTOS BALANCEADOS</Button>
+          <div className="row align-items:center">
+            <div className="d-flex flex-column justify-content-center col-md-4 col-sm-8 mx-auto">
+              <Button className="mt-4">ALIMENTOS BALANCEADOS</Button>
               <div className="d-flex justify-content-center mt-3">
-
-              <Image
-                className="publicidad"
-                src="https://images.ctfassets.net/qp85kbzn8noe/20KzCDy1A3YWdwH2zH5HvV/f7df56255378539cd4ed1c2cd7618fc5/PED_Gutes_Geben_Puppy_Banner_500x320_1_.jpg"
-              ></Image>
+                <Image
+                  className="publicidad"
+                  src="https://images.ctfassets.net/qp85kbzn8noe/20KzCDy1A3YWdwH2zH5HvV/f7df56255378539cd4ed1c2cd7618fc5/PED_Gutes_Geben_Puppy_Banner_500x320_1_.jpg"
+                ></Image>
               </div>
             </div>
-            <div className="d-flex flex-column col-md-4 col-sm-8">
-              <Button>HIGIENE</Button>
+            <div className="d-flex flex-column col-md-4 col-sm-8 mx-auto">
+              <Button className="mt-4">HIGIENE</Button>
               <div className="d-flex justify-content-center mt-3">
-
-              <Image
-                className="publicidad"
-                src="https://danaturaldog.com/cdn/shop/files/diseno-sin-titulo-_1__optimized.png?v=1686118758"
-              ></Image>
+                <Image
+                  className="publicidad"
+                  src="https://danaturaldog.com/cdn/shop/files/diseno-sin-titulo-_1__optimized.png?v=1686118758"
+                ></Image>
               </div>
             </div>
-            <div className="d-flex flex-column col-md-4 col-sm-8">
-              <Button>ENTRENAMIENTO</Button>
+            <div className="d-flex flex-column col-md-4 col-sm-8 mx-auto">
+              <Button className="mt-4">ENTRENAMIENTO</Button>
               <div className="d-flex justify-content-center mt-3">
-
-              <Image
-                className="publicidad"
-                src="https://purina.com.mx/sites/default/files/styles/webp/public/2024-02/mejores-juguetes-para-perros-dentalife.jpg.webp?itok=gW5DkaSo"
-              ></Image>
+                <Image
+                  className="publicidad"
+                  src="https://purina.com.mx/sites/default/files/styles/webp/public/2024-02/mejores-juguetes-para-perros-dentalife.jpg.webp?itok=gW5DkaSo"
+                ></Image>
               </div>
             </div>
           </div>
-            <br />
+          <br />
           <Button as={Link} to="/error">
             VER MÁS
           </Button>
@@ -202,7 +214,7 @@ const Inicio = () => {
             {planes.map((plan, index) => {
               return (
                 <CardPlanes
-                  className="cardPlanes"
+                  className="planesCard"
                   key={`CardPlanes${index}`}
                   plan={plan}
                 />
@@ -213,7 +225,17 @@ const Inicio = () => {
 
         <div className="comunidad">
           <h1>NUESTRA COMUNIDAD</h1>
-          <div></div>
+          <div className="row justify-content-center">
+            {comentarios.map((comentario, index) => {
+              return (
+                <ComentariosCard
+                  className="cardComentarios"
+                  key={`comentariosCard${index}`}
+                  comentario={comentario}
+                />
+              );
+            })}
+          </div>
         </div>
       </section>
     </>
