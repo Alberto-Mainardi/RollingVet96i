@@ -16,7 +16,7 @@ const SchemaPaciente = Schema({
         type:String,
         required:[true, "Este campo es obligatorio"]
     },
-    contraseña: {
+    clave: {
         type:String,
         required:[true, "Este campo es obligatorio"]
     },
