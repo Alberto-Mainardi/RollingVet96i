@@ -1,15 +1,5 @@
 const Mascota = require("../models/mascota");
 
-const { limite = 5, desde = 0 } = req.query;
-const query = { state: true };
-const [total, cursos] = await Promise.all([
-    Mascota.countDocuments(query),
-    Mascota.find(query)
-      .skip(Number(desde))
-      .limit(Number(limite))
-      .populate("paciente")
-  ]);
-
 
 const get = async (req, res) => {
     let mascotas = await Mascota.find({})
@@ -22,6 +12,7 @@ const getOne = async (req, res) => {
 }
 const create = async (req, res) => {
     const { nombre, especie, raza, propietarioID } = req.body;
+    // usar un elif para validar que lleguen todos los campos y si se logra entonces recien acceder a la db
     const mascotaNueva = new Mascota({ nombre, especie, raza, propietarioID });
     await mascotaNueva.save();
     return res.status(201).json({msg: "Mascota registrada exitosamente.", mascota:mascotaNueva})
