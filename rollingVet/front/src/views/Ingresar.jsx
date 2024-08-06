@@ -48,7 +48,9 @@ function Ingresar({ingresoPaciente}) {
                   "mascotasIDs":ingreso.mascotasIDs,
                   "admin":ingreso.admin,
                 }
+                
           );
+          localStorage.setItem("user", JSON.stringify(user));
         }
         });
       }

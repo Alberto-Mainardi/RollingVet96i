@@ -56,6 +56,16 @@ export const ingresoPaciente = async (obj) => {
     }
 }
 
+export const eliminarPaciente = async (id) =>{
+    try{
+        let paciente = await axios.delete(`${urlPacientes}/${id}`);
+        return paciente
+    }catch (error){
+        console.log(error);
+        
+    }
+}
+
 export const capturarUnPaciente = async (id) => {
     try {
         let paciente = await axios.get(`${urlPacientes}/${id}`);

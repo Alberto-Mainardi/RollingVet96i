@@ -20,17 +20,19 @@ import { ContextoUsuario } from './components/ContextoUsuario';
 
 function App() {
 
-  const [user, setUser] = useState(
-    {
-      "nombre": "",
-      "apellido": "",
-      "email": "",
-      "telefono": "",
-      "estado": false,
-      "mascotasIDs": [],
-      "admin": false,
-    }
-  )
+  const usuarioGuardado = JSON.parse(localStorage.getItem("user")) 
+  || 
+  {
+    "nombre": "",
+    "apellido": "",
+    "email": "",
+    "telefono": "",
+    "estado": false,
+    "mascotasIDs": [],
+    "admin": false,
+  }
+  const [user, setUser] = useState(usuarioGuardado);
+  
   console.log(user);
 
 

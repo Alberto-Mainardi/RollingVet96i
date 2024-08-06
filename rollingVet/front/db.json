@@ -4,7 +4,7 @@
       "id": "9e13",
       "nombre": "alber",
       "apellido": "Mainardi",
-      "contraseña": "1234",
+      "clave": "1234",
       "email": "usuario@gmail.com",
       "telefono": 12345678,
       "estado": true,
@@ -22,6 +22,7 @@
       "id": "9e15",
       "nombre": "alber",
       "apellido": "Mainardi",
+      "clave":"123",
       "email": "usuario@gmail.com",
       "telefono": 12345678,
       "estado": true,
@@ -30,7 +31,8 @@
         "123456",
         "bf2e",
         "45dc",
-        "543e"
+        "543e",
+        "9792"
       ],
       "admin": true
     }
@@ -57,7 +59,25 @@
       "especie": "Loro",
       "raza": "Brasileño",
       "propietarioID": "9e15"
+    },
+    {
+      "id": "9792",
+      "nombre": "Manchas",
+      "especie": "Perro",
+      "raza": "Golden",
+      "propietarioID": "9e15"
     }
   ],
-  "turnos": []
+  "turnos": [
+    {
+      "id": "ead7",
+      "fecha": "2024-08-06",
+      "hora": "11:00",
+      "sucursal": "sucursal2",
+      "propietario": "JA",
+      "mascota": "Manchita",
+      "motivoConsulta": "Duele la panza",
+      "telefono": "3816407877"
+    }
+  ]
 }
