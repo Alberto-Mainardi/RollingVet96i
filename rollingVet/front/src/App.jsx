@@ -2,7 +2,7 @@ import './App.css'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { RutasAdmin, RutasPaciente, RutasInvitado } from './routes/RutasPrivadas'
-import { validarPaciente, crearPaciente, modificarPaciente,ingresoPaciente, traerPacientes, capturarUnPaciente, crearMascota, eliminarMascota,traerMascotas, traerMascotasUsuario, traerTurnos, traerUnTurno,crearTurno, actualizarTurno, eliminarTurno, validarTurno } from "./utils/index";
+import { validarPaciente, crearPaciente, modificarPaciente,ingresoPaciente, traerPacientes, capturarUnPaciente, eliminarPaciente, crearMascota, eliminarMascota,traerMascotas, traerMascotasUsuario, traerTurnos, traerUnTurno,crearTurno, actualizarTurno, eliminarTurno, validarTurno } from "./utils/index";
 import NavbarApp from './common/NavbarApp';
 import Inicio from './views/Inicio';
 import Nosotros from './views/Nosotros';
@@ -15,7 +15,9 @@ import AdministrarTurnos from './views/AdministrarTurnos';
 import PaginaUsuario from './views/PaginaUsuario';
 import AgregarMascota from './views/AgregarMascota';
 import ModificarTurno from './views/ModificarTurno';
+
 import { ContextoUsuario } from './components/ContextoUsuario';
+import CrearPaciente from './views/CrearPaciente';
 
 
 function App() {
@@ -57,7 +59,9 @@ function App() {
             <Route path='/guest/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente}/>}/>
             <Route path='/guest/registrarse' element={<Registrarse/>}/>
           </Route>
-          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes />}/>
+
+          <Route path='/admin/crearPaciente/:id' element={<CrearPaciente />} />
+          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes traerPacientes={traerPacientes} eliminarPaciente={eliminarPaciente}/>}/>
           <Route path='/admin/gestionTurnos' element={<AdministrarTurnos traerTurnos={traerTurnos} crearTurno={crearTurno} eliminarTurno={eliminarTurno}/>}/>
           <Route path='/admin/modificarTurno/:id' element={ <ModificarTurno actualizarTurno={actualizarTurno} traerUnTurno={traerUnTurno}/>} />
           {/* <Route path='*' element={<ErrorScreen/>} /> */}

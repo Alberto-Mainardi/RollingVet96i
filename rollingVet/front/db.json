@@ -1,28 +1,10 @@
 {
   "pacientes": [
     {
-      "id": "9e13",
-      "nombre": "alber",
-      "apellido": "Mainardi",
-      "clave": "1234",
-      "email": "usuario@gmail.com",
-      "telefono": 12345678,
-      "estado": true,
-      "mascotasIDs": [
-        "12345",
-        "123456",
-        "7924",
-        "4348",
-        "e7b2",
-        "ffaa"
-      ],
-      "admin": false
-    },
-    {
       "id": "9e15",
       "nombre": "alber",
       "apellido": "Mainardi",
-      "clave":"123",
+      "clave": "123",
       "email": "usuario@gmail.com",
       "telefono": 12345678,
       "estado": true,
@@ -52,13 +34,6 @@
       "especie": "Cocodrilo",
       "raza": "normal",
       "propietarioID": "9e13"
-    },
-    {
-      "id": "543e",
-      "nombre": "Paco",
-      "especie": "Loro",
-      "raza": "Brasileño",
-      "propietarioID": "9e15"
     },
     {
       "id": "9792",

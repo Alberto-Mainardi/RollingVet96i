@@ -62,8 +62,8 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
   }
   return (
     <>
-      <div className="d-flex justify-content-between container">
-        <div>Administrar Turnos
+      <div className="justify-content-between container-fluid row p-5">
+        <div className="col-sm-12 col-md-8"><h2>Administrar Turnos</h2>
           <Table>
             <thead>
               <tr>
@@ -99,7 +99,7 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
 
 
         </div>
-        <div>Asignar Turnos
+        <div className="col-sm-12 col-md-4"><h2>Asignar Turnos</h2>
           <Form onSubmit={handleSubmit(asignarTurno)}>
             <Form.Control
               type="date"

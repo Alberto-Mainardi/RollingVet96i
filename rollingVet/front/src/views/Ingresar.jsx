@@ -50,7 +50,7 @@ function Ingresar({ingresoPaciente}) {
                 }
                 
           );
-          localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(ingreso));
         }
         });
       }
@@ -84,11 +84,11 @@ function Ingresar({ingresoPaciente}) {
         type="password" 
         placeholder="Contraseña"
         autoComplete='false'
-        {...register("contraseña",
+        {...register("clave",
           {required:"La contraseña es un campo obligatorio"}
         )} />
         <Form.Text className="text-muted">
-          {errors.contraseña?.message}
+          {errors.clave?.message}
         </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">

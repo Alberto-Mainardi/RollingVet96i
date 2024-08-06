@@ -45,12 +45,13 @@ export const traerPacientes = async () => {
 export const ingresoPaciente = async (obj) => {
     let pacientes = await traerPacientes();
     let paciente = pacientes.find(paciente => {
-        if (paciente.email == obj.email && paciente.contraseña == obj.contraseña) {
+        if (paciente.email == obj.email && paciente.clave == obj.clave) {
+            console.log(paciente);
             return paciente
         }
     });
-    console.log(paciente);
-    if (paciente?.email && /* compareSync(obj.contraseña, paciente.contraseña) */ paciente?.contraseña ) {
+    
+    if (paciente?.email && /* compareSync(obj.clave, paciente.clave) */ paciente?.clave ) {
         console.log(paciente);
         return paciente
     }

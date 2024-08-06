@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Form, Button } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router-dom'
-import { actualizarPaciente, traerUnPaciente } from '../utils'
+import { modificarPaciente, capturarUnPaciente } from '../utils'
 import Swal from 'sweetalert2'
 const CrearPaciente = () => {
     const { handleSubmit, register, formState: { errors }, reset,setValue } = useForm()
@@ -11,12 +11,15 @@ const CrearPaciente = () => {
     
     const updatePaciente = async (obj) => {
         
-        let paciente = await traerUnPaciente(params.id);
-        paciente.nombre = obj.nombre
-        paciente.apellido = obj.apellido
-        paciente.email = obj.email
-        paciente.telefono = obj.telefono
-        let pacienteActualizado = await actualizarPaciente(params.id,paciente);
+        let paciente = await capturarUnPaciente(params.id);
+        console.log(paciente);
+        const {data} = paciente
+
+        data.nombre = obj.nombre
+        data.apellido = obj.apellido
+        data.email = obj.email
+        data.telefono = obj.telefono
+        let pacienteActualizado = await modificarPaciente(params.id,data);
         if(!paciente){
             Swal.fire({
                 title: "Oops!",
@@ -57,11 +60,13 @@ const CrearPaciente = () => {
         const leerPaciente = async()=>{
             
             if(params.id){
-                let  paciente = await traerUnPaciente(params.id);
-                setValue("nombre",paciente.nombre);
-                setValue("apellido",paciente.apellido);
-                setValue("email",paciente.email);
-                setValue("telefono",paciente.telefono);
+                let paciente = await capturarUnPaciente(params.id);
+                const {data} = paciente
+                
+                setValue("nombre",data.nombre);
+                setValue("apellido",data.apellido);
+                setValue("email",data.email);
+                setValue("telefono",data.telefono);
             }
           }
         leerPaciente();
