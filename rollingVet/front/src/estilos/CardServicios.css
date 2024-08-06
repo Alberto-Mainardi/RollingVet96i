@@ -4,12 +4,13 @@
 }
 
 .cardServicio:hover{
+    transition: all 200ms;
     transform: scale(1.2);
 }
 
 
 .imgServicios {
-    width: 100%;
+    height: 160px;
     display: block;
 }
 
