@@ -12,6 +12,7 @@ import Ingresar from './views/Ingresar';
 import Registrarse from './views/Registrarse';
 import AdministrarPacientes from './views/AdministrarPacientes';
 import AdministrarTurnos from './views/AdministrarTurnos';
+import Footer from './common/Footer';
 import PaginaUsuario from './views/PaginaUsuario';
 import AgregarMascota from './views/AgregarMascota';
 import ModificarTurno from './views/ModificarTurno';
