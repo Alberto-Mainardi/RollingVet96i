@@ -10,8 +10,8 @@ const getOne = async (req, res) => {
     return res.status(200).json({paciente});
 }
 const create = async (req, res) => {
-    const { nombre, apellido, email, telefono, contraseña } = req.body;
-    const nuevoPaciente = new Paciente({nombre, apellido, email, telefono, contraseña});
+    const { nombre, apellido, email, telefono, clave } = req.body;
+    const nuevoPaciente = new Paciente({nombre, apellido, email, telefono, clave});
     await nuevoPaciente.save();
     return res.status(201).json({msg: "Paciente registrado exitosamente.", paciente:nuevoPaciente})
 }
