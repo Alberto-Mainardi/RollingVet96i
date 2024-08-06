@@ -1,6 +1,6 @@
-const urlPacientes = "http://localhost:3000/pacientes";
-const urlMascotas = "http://localhost:3000/mascotas";
-const urlTurnos = "http://localhost:3000/turnos";
+const urlPacientes = import.meta.env.VITE_URL_PACIENTES;
+const urlMascotas = import.meta.env.VITE_URL_MASCOTAS;
+const urlTurnos = import.meta.env.VITE_URL_TURNOS;
 import axios from 'axios';
 import { compareSync } from 'bcryptjs-react';
 
