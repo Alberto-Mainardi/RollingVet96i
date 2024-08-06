@@ -7,7 +7,9 @@ class Server {
         this.app = express();
         this.port = 8080;
         this.rutaPacientes = "/api/pacientes";
-        this.rutaMascotas = "/api/mascotas"
+        this.rutaMascotas = "/api/mascotas";
+        this.rutaTurnos = "/api/turnos";
+
 
         this.conectarDb();
         this.middlewares();
@@ -23,6 +25,7 @@ class Server {
     rutas(){
         this.app.use(this.rutaPacientes , require("../routes/pacientes"));
         this.app.use(this.rutaMascotas , require("../routes/mascotas"));
+        this.app.use(this.rutaTurnos , require("../routes/turnos"));
     }
     listen(){
         this.app.listen(this.port, ()=>{
