@@ -19,6 +19,7 @@ import ModificarTurno from './views/ModificarTurno';
 import { ContextoUsuario } from './components/ContextoUsuario';
 import CrearPaciente from './views/CrearPaciente';
 
+import Error404 from './views/Error404';
 
 function App() {
 
@@ -47,32 +48,10 @@ function App() {
           <Route path='/nosotros' element={<Nosotros />}/>
           <Route path='/contacto' element={<Contacto />}/>
           <Route path='/planes' element={<Planes />}/>
-
-
-          <Route path='/user' element={<RutasPaciente/>}>
-            <Route path='/user/userpage' element={<PaginaUsuario eliminarMascota={eliminarMascota} traerMascotasUsuario={traerMascotasUsuario}/>}/>
-            <Route path='/user/agregarMascota' element={<AgregarMascota crearMascota={crearMascota} modificarPaciente={modificarPaciente}/>}/>
-
-          </Route>
-
-          <Route path='/guest' element ={<RutasInvitado/>}>
-            <Route path='/guest/ingresar' element={<Ingresar ingresoPaciente={ingresoPaciente}/>}/>
-            <Route path='/guest/registrarse' element={<Registrarse/>}/>
-          </Route>
-
-          <Route path='/admin/crearPaciente/:id' element={<CrearPaciente />} />
-          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes traerPacientes={traerPacientes} eliminarPaciente={eliminarPaciente}/>}/>
-          <Route path='/admin/gestionTurnos' element={<AdministrarTurnos traerTurnos={traerTurnos} crearTurno={crearTurno} eliminarTurno={eliminarTurno}/>}/>
-          <Route path='/admin/modificarTurno/:id' element={ <ModificarTurno actualizarTurno={actualizarTurno} traerUnTurno={traerUnTurno}/>} />
+          <Route path='/admin/gestionPacientes' element={<AdministrarPacientes/>}/>
+          <Route path='/admin/gestionTurnos' element={<AdministrarTurnos/>}/>
           {/* <Route path='*' element={<ErrorScreen/>} /> */}
           
-          
-          <Route path='/admin' element={<RutasAdmin/>}>
-            {/* AQUI HAY QUE PONER LAS RUTAS DEL ADMIN  */}
-          </Route>
-          
-          {/* <Route path='*' element={<ErrorScreen/>} /> */}
-
         </Routes>
       </BrowserRouter>
     </ContextoUsuario.Provider>

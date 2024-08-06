@@ -32,7 +32,9 @@
   background-color: var(--color-principal);
 }
 
-
+.font-title{
+  font-family: "Playwrite BE VLG", cursive;
+}
 
 @media (min-width: 1024px){
   .navBar-Height{
