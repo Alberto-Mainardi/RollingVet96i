@@ -14,7 +14,8 @@
         "bf2e",
         "45dc",
         "543e",
-        "9792"
+        "9792",
+        "cdb0"
       ],
       "admin": true
     }
@@ -41,48 +42,25 @@
       "especie": "Perro",
       "raza": "Golden",
       "propietarioID": "9e15"
+    },
+    {
+      "id": "cdb0",
+      "nombre": "Tom",
+      "especie": "gato",
+      "raza": "siames",
+      "propietarioID": "9e15"
     }
   ],
   "turnos": [
     {
-      "id": "ead7",
-      "fecha": "2024-08-06",
-      "hora": "11:00",
-      "sucursal": "sucursal2",
-      "propietario": "JA",
-      "mascota": "Manchita",
-      "motivoConsulta": "Duele la panza",
-      "telefono": "3816407877"
-    },
-    {
-      "id": "324a",
-      "fecha": "2024-08-14",
-      "hora": "12:30",
-      "sucursal": "sucursal2",
-      "propietario": "egw",
-      "mascota": "vsrgfew",
-      "motivoConsulta": "sdvwgef",
-      "telefono": "465312"
-    },
-    {
-      "id": "681d",
-      "fecha": "2024-08-08",
-      "hora": "17:30",
-      "sucursal": "sucursal1",
-      "propietario": "x vvsf",
-      "mascota": "xvda",
-      "motivoConsulta": "csdvaf",
-      "telefono": "351"
-    },
-    {
-      "id": "b207",
+      "id": "3453",
       "fecha": "2024-08-15",
-      "hora": "10:30",
+      "hora": "12:00",
       "sucursal": "sucursal1",
-      "propietario": "csdadc",
-      "mascota": "svda",
-      "motivoConsulta": "svdad",
-      "telefono": "3562"
+      "propietario": "Maria Helena",
+      "mascota": "Pelusa",
+      "motivoConsulta": "moquillo y tos",
+      "telefono": "235658569"
     }
   ]
 }

@@ -16,7 +16,7 @@ import Footer from './common/Footer';
 import PaginaUsuario from './views/PaginaUsuario';
 import AgregarMascota from './views/AgregarMascota';
 import ModificarTurno from './views/ModificarTurno';
-
+import Error404 from './views/Error404'
 import { ContextoUsuario } from './components/ContextoUsuario';
 import CrearPaciente from './views/CrearPaciente';
 
