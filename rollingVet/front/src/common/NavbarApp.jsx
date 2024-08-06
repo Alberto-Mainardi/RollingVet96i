@@ -33,7 +33,7 @@ const NavbarApp = () => {
             denyButtonText: `Cerrar Sesión`
         }).then((result) => {
             if (result.isDenied) {
-
+                localStorage.removeItem("user")
                 Swal.fire({
                     title: "Sesión Cerrada Exitosamente!",
                     text: "En breves te redireccionaremos a la página principal",
@@ -96,7 +96,7 @@ const NavbarApp = () => {
                             Contáctanos
                         </NavLink>
 
-                        {user.id ? <>
+                        {user.estado ? <>
                             <NavLink className="nav-link text-white fs-5" onClick={logout}>
                                 Cerrar Sesión
                             </NavLink>

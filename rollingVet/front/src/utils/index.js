@@ -36,7 +36,10 @@ export const traerPacientes = async () => {
     console.log(pacientes);
     let { data } = pacientes;
     console.log(data);
-    return data;
+    let {Pacientes} = data;
+    console.log(Pacientes);
+    
+    return Pacientes;
   } catch (error) {
     console.error(error);
   }
@@ -44,6 +47,10 @@ export const traerPacientes = async () => {
 
 export const ingresoPaciente = async (obj) => {
     let pacientes = await traerPacientes();
+    console.log(pacientes);
+    const {array} = pacientes;
+    console.log(array);
+    
     let paciente = pacientes.find(paciente => {
         if (paciente.email == obj.email && paciente.clave == obj.clave) {
             console.log(paciente);
@@ -100,8 +107,8 @@ export const traerTurnos = async () => {
     let turnos = await axios.get(`${urlTurnos}/`);
 
     let { data } = turnos;
-
-    return data;
+    let { Turnos } = data
+    return Turnos;
   } catch (error) {
     console.error(error);
   }
@@ -161,9 +168,10 @@ export const eliminarMascota = async (id) => {
 }
 export const traerMascotas = async () => {
     try {
-        let mascotas = await axios.get(`${urlMascotas}/`);
-        let {data} = mascotas;
-        return data
+        let mascotasDB = await axios.get(`${urlMascotas}/`);
+        let {data} = mascotasDB;
+        let {mascotas} = data
+        return mascotas
     } catch (error) {
         console.error(error)
     }

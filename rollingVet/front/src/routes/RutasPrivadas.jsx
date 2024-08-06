@@ -17,7 +17,7 @@ const {user} = useContext(ContextoUsuario)
 
 export const RutasPaciente = () => {
     const {user} = useContext(ContextoUsuario);
-    if (user.id) {
+    if (user.estado) {
         return <Outlet/>
     } else {
         console.log("problemón");
@@ -27,7 +27,7 @@ export const RutasPaciente = () => {
 
 export const RutasInvitado = () => {
     const {user} = useContext(ContextoUsuario);
-    if (!user.id) {
+    if (!user.estado) {
         return <Outlet/>
     } else {
         console.log("problemón");
