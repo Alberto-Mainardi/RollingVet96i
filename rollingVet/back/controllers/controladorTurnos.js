@@ -12,7 +12,7 @@ const getOne = async (req, res) => {
 const create = async (req, res) => {
   const {
     paciente,
-    dueño,
+    propietario,
     telefono,
     sucursal,
     motivoConsulta,
@@ -29,7 +29,7 @@ const create = async (req, res) => {
   } 
     const nuevoTurno = new Turno({
       paciente,
-      dueño,
+      propietario,
       telefono,
       sucursal,
       motivoConsulta,

@@ -4,7 +4,7 @@ const SchemaTurno = Schema({
         type:Number,
         required:[true,"Este campo es obligatorio"]
     },
-    dueño: {
+    propietario: {
         type:String,
         required:[true, "Este campo es obligatorio"]
     },
