@@ -9,7 +9,7 @@ function ImageCardProf(props) {
     <Card className="bg-dark text-white">
       <Card.Img src={imagen} className="imgProf" />
       <Card.ImgOverlay className="d-flex flex-column justify-content-center">
-        <Card.Title className="tituloProf">{titulo}</Card.Title>
+        <Card.Title className="tituloProf font-title">{titulo}</Card.Title>
         <Card.Text className="textoProf">{texto}</Card.Text>
 
         <div className="d-flex justify-content-center">

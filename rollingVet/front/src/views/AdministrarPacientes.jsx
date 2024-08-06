@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import '../estilos/adminPacientes.css'
 const AdministrarPacientes = ({eliminarPaciente, traerPacientes}) => {
   
   let pacienteEditar = {};

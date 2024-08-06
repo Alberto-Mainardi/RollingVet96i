@@ -68,7 +68,7 @@ const Inicio = () => {
 
   let profesionales = [
     {
-      titulo: "NUESTROS PROFESIONALES",
+      titulo: "Nuestros Profesionales",
       texto:
         "Somos el equipo desarrollador de la web de RollingVet, nos centramos en el trabajo en equipo basado en la comunicacion, respeto y organizacion. Juntos esperamos brindarte el mejor servicio para que puedas cuidar a tus mascotas de la mejor manera desde la comodidad de tu casa. Gracias por confiar en nosotros.",
       imagen:
@@ -79,7 +79,7 @@ const Inicio = () => {
   let datosEncabezado = {
     direc1: "Sucursal 1: General Paz 345",
     direc2: "Sucursal 2: Las Piedras 2568",
-    titulo: "PRIMERA REVISIÓN GRATUITA",
+    titulo: "Primera Revisión Gratuita",
     imagen:
       "https://www.galachoveterinarios.com/wp-content/uploads/2016/03/IMG_5701x-min-1903x1050.jpg",
   };
@@ -103,24 +103,11 @@ const Inicio = () => {
   ];
 
   return (
-    <>
+    <main>
       <section className="container justify-content-center">
-        <main className="container my-5">
-          <div className="weatherCard">
-            {!error ? (
-              <DataCard weatherData={weatherData}></DataCard>
-            ) : (
-              <Error />
-            )}
-            <WeatherForm
-              setWeatherData={setWeatherData}
-              setError={setError}
-            ></WeatherForm>
-          </div>
-        </main>
-        <footer className="bg-dark text-light text-center py-4">
-          <p>&copy; Todos los derechos reservados</p>
-        </footer>
+        <div className="container my-5">
+          <h1 className="font-title">Rolling Vet</h1>
+        </div>
 
         <div className="encabezado row mx-auto">
           <ImageCardEncabezado
@@ -135,7 +122,7 @@ const Inicio = () => {
         <div className="cuidadoYcariño row justify-content-center">
           <div className="seccion2 col-md-10 col-sm-12">
             <div>{/* <FontAwesomeIcon icon="fa-thin fa-paw" /> */}</div>
-            <h1>CUIDADO Y CARIÑO EN CADA VISITA</h1>
+            <h1 className="font-title">Cuidado y Cariño en Cada Visita</h1>
 
             <Button as={Link} to="/contacto" variant="dark">
               CONTACTO
@@ -144,7 +131,7 @@ const Inicio = () => {
         </div>
 
         <div className="servicios">
-          <h1>NUESTROS SERVICIOS</h1>
+          <h1 className="font-title">Nuestros Servicios</h1>
 
           <div className=" row justify-content-center">
             {servicios.map((servicio, index) => {
@@ -171,7 +158,7 @@ const Inicio = () => {
         </div>
 
         <div className="productos">
-          <h1>NUESTROS PRODUCTOS</h1>
+          <h1 className="font-title">Nuestros Productos</h1>
 
           <div className="row align-items:center">
             <div className="d-flex flex-column justify-content-center col-md-4 col-sm-8 mx-auto">
@@ -209,7 +196,7 @@ const Inicio = () => {
         </div>
 
         <div className="planes">
-          <h1>NUESTROS PLANES DE SALUD</h1>
+          <h1 className="font-title">Nuestros Planes de Salud</h1>
           <div className=" row justify-content-center">
             {planes.map((plan, index) => {
               return (
@@ -224,7 +211,7 @@ const Inicio = () => {
         </div>
 
         <div className="comunidad">
-          <h1>NUESTRA COMUNIDAD</h1>
+          <h1 className="font-title">Nuestra Comunidad</h1>
           <div className="row justify-content-center">
             {comentarios.map((comentario, index) => {
               return (
@@ -237,8 +224,26 @@ const Inicio = () => {
             })}
           </div>
         </div>
+        <div className="d-flex justify-content-center m-5">
+          <div className="">
+            <h2 className="font-title">Clima</h2>
+          <div className="weatherCard">
+            {!error ? (
+              <DataCard weatherData={weatherData}></DataCard>
+            ) : (
+              <Error />
+            )}
+            <WeatherForm
+              setWeatherData={setWeatherData}
+              setError={setError}
+            ></WeatherForm>
+          </div>
+          </div>
+          
+        </div>
+
       </section>
-    </>
+    </main>
   );
 };
 

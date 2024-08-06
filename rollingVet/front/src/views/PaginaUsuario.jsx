@@ -21,18 +21,14 @@ const PaginaUsuario = ({ eliminarMascota, traerMascotasUsuario, }) => {
 
     return (
         <main className='bg-miCuenta w-100'>
-            <Card className='miCuentaContainer' style={{ maxWidth: "1280px" }}>
+            <Card className='miCuentaContainer d-flex' style={{ maxWidth: "1280px" }}>
                 <Card.Body className='text-start'>
                     <Card.Title className='fs-1'>Mi Cuenta</Card.Title>
                     <Card.Text>
-                        {nombre}
+                    {`${nombre} ${apellido}`}
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="detallesPerfil">
-                    <ListGroup.Item>
-                        <p>NOMBRE COMPLETO</p>
-                        {`${apellido} ${nombre}`};
-                    </ListGroup.Item>
                     <ListGroup.Item>
                         <p>EMAIL</p>
                         {`${email}`}
@@ -63,10 +59,6 @@ const PaginaUsuario = ({ eliminarMascota, traerMascotasUsuario, }) => {
 
 
                 </ListGroup>
-                <Card.Body>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
-                </Card.Body>
             </Card>
         </main>
 

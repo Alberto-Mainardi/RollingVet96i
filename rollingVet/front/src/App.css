@@ -59,10 +59,6 @@
 .bg-sucursal{
   background-color: var(--bg-color2);
 }
-.font-title{
-  font-family: "Playwrite BE VLG", cursive;
-  
-}
 
 
 @media (min-width: 1024px){
@@ -83,12 +79,6 @@ input.placeholder-white::placeholder {
   color: white !important;
   opacity: 0.5;
 }
-
-
-.font-title{
-  font-family: "Playwrite BE VLG", cursive ;
-}
-
 
 .texto-color1{
   color: var(--texto-color);

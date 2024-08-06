@@ -16,6 +16,7 @@ const DataCard = ({ weatherData }) => {
         </Card.Title>
         {weatherData?.weather ? (
           <img
+            style={{width:"3rem", margin:"auto"}}
             src={` http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`}
             alt={weatherData?.weather[0]?.description}
           />

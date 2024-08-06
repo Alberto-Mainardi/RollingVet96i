@@ -25,34 +25,45 @@ const NavbarApp = () => {
     const {user, setUser} = useContext(ContextoUsuario);
     const logout = () => {
         let timerInterval;
-        
         Swal.fire({
-          title: "Sesión Cerrada Exitosamente!",
-          text: "En breves te redireccionaremos a la página principal",
-          icon: "success",
-          timer: 1400,
-          timerProgressBar: true,
-          didOpen: () => {
-            Swal.showLoading();
-            timerInterval = setInterval(() => {
-            }, 100);
-          },
-          willClose: () => {
-            clearInterval(timerInterval);
-            navigate('/');
-            setUser(
-              {
-                  "id": "",
-                  "nombre": "",
-                  "apellido": "",
-                  "email": "",
-                  "telefono": "",
-                  "estado": false,
-                  "mascotasIDs": [],
-                  "admin": false,
-                }
-          );
-        }
+            title: "Cerrar Sesión",
+            text: "Seguro que deseas cerrar sesión?",
+            showDenyButton: true,
+            confirmButtonText: "Cancelar",
+            denyButtonText: `Cerrar Sesión`
+        }).then((result) => {
+            if (result.isDenied) {
+
+                Swal.fire({
+                    title: "Sesión Cerrada Exitosamente!",
+                    text: "En breves te redireccionaremos a la página principal",
+                    icon: "success",
+                    timer: 1400,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                      Swal.showLoading();
+                      timerInterval = setInterval(() => {
+                      }, 100);
+                    },
+                    willClose: () => {
+                      clearInterval(timerInterval);
+                      navigate('/');
+                      setUser(
+                        {
+                            "id": "",
+                            "nombre": "",
+                            "apellido": "",
+                            "email": "",
+                            "telefono": "",
+                            "estado": false,
+                            "mascotasIDs": [],
+                            "admin": false,
+                          }
+                    );
+                  }
+                  });
+                
+            }
         });
     }
     return (
@@ -99,9 +110,11 @@ const NavbarApp = () => {
                             <NavLink className="nav-link  text-white fs-5" to="/guest/ingresar">
                                 Ingresar
                             </NavLink>
-                            <NavLink className="nav-link  text-white fs-5" to="/guest/registrarse">
+
+                            {/* <NavLink className="nav-link  text-white fs-5" to="/guest/registrarse">
                                 Registrarse
-                            </NavLink>
+                            </NavLink> */}
+
                         </>
 
                         }

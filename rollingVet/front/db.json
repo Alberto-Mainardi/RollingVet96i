@@ -4,7 +4,6 @@
       "id": "9e15",
       "nombre": "alber",
       "apellido": "Mainardi",
-      "clave": "123",
       "email": "usuario@gmail.com",
       "telefono": 12345678,
       "estado": true,
@@ -15,7 +14,8 @@
         "45dc",
         "543e",
         "9792",
-        "cdb0"
+        "cdb0",
+        "f1ef"
       ],
       "admin": true
     }
@@ -53,14 +53,14 @@
   ],
   "turnos": [
     {
-      "id": "3453",
-      "fecha": "2024-08-15",
-      "hora": "12:00",
-      "sucursal": "sucursal1",
-      "propietario": "Maria Helena",
-      "mascota": "Pelusa",
-      "motivoConsulta": "moquillo y tos",
-      "telefono": "235658569"
+      "id": "c294",
+      "fecha": "2024-08-06",
+      "hora": "12:30",
+      "sucursal": "sucursal2",
+      "propietario": "JA",
+      "mascota": "Manchita",
+      "motivoConsulta": "Duele la panza",
+      "telefono": "3816407877"
     }
   ]
 }

@@ -3,7 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-dom';
-import "../estilos/CardServicios.css"
+import "../estilos/CardServicios.css";
+import { Link } from "react-router-dom";
 
 
 function CardServicios({servicio}) {
@@ -15,7 +16,7 @@ function CardServicios({servicio}) {
       <Card.Img variant="top" src={src} alt={especialidad} className='imgServicios'/>
       <Card.Body>
         <Card.Title>{especialidad}</Card.Title>
-        {<Button variant="dark">Ver más</Button>}
+        {<Button variant="dark" as={Link} to="/error">Ver más</Button>}
       </Card.Body>
     </Card>
   );
