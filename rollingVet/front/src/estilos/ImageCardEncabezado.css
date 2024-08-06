@@ -1,0 +1,21 @@
+
+.imgEncabezado{
+    object-fit: cover;
+    height: 300px;
+    max-width: 100%;
+    display: block;
+    opacity: 0.8;
+}
+
+.direcEncabezado {
+    font-size: 2vw;
+    font-weight:bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.textoRevision {
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+
