@@ -19,15 +19,16 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
   useEffect(() => {
     traerTurnos().then((data) => {
       setTurnos(data);
+      console.log(data);
+      
     });
   }, []);
 
   const asignarTurno = async (obj) => {
     try {
       let turno = obj;
-
-      console.log(turnos);
       console.log(turno);
+      
 
       const turnoOcupado = turnos.find((turnoDB) => {
         if (
@@ -35,6 +36,8 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
           turnoDB.fecha == turno.fecha &&
           turnoDB.sucursal == turno.sucursal
         ) {
+          console.log(turnoDB);
+          
           return true;
         }
       });
@@ -64,7 +67,36 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
     reset();
   };
 
+  // const getHoursOptions = () => {
+  //   const currentTime = new Date();
+  //   const currentHour = currentTime.getHours();
+  //   const currentMinute = currentTime.getMinutes();
   
+   
+  //   const minAllowedMinute = currentMinute >= 30 ? 0 : 30; 
+  //   const options = [];
+  //   for (let hour = currentHour; hour <= (currentHour === 18 ? currentHour : 24); hour++) { 
+  //     for (let minuto = minAllowedMinute; minuto <=60; minuto +=30) {
+  //     const label = `${hour.toString().padStart(2, "0")} : ${minuto.toString().padStart(2, "0")}`; 
+
+  //     const isOccupied = turnos.some(
+  //       (turno) => turno.hora === label && turno.fecha === register("fecha").value && turno.sucursal === label
+  //     );
+
+  //     if (
+  //       (hour === currentHour && currentMinute >= minAllowedMinute && !isOccupied) ||
+  //       hour > currentHour ||
+  //       !isOccupied
+  //     ) {
+  //       options.push({ value: label, label });
+  //     } 
+      // else if (hour > currentHour) {
+      //   options.push({ value: label, label });
+      // }
+  //   }
+  //   return options;
+  // }}
+
   return (
     <>
       <div className="justify-content-between container-fluid row p-5 bg-adminturnos">
@@ -85,13 +117,15 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
               </tr>
             </thead>
             <tbody>
-              {turnos.map((turno) => {
+              { 
+              turnos.map((turno) => {
                 return (
                   <tr className="tr" key={`TurnoRow${turno.id}`}>
                     <td>{turno.id}</td>
                     <td>{turno.fecha}</td>
                     <td>{turno.hora}</td>
-                    <td>{turno.sucursal}</td> <td>{turno.propietario}</td>
+                    <td>{turno.sucursal}</td>
+                    <td>{turno.propietario}</td>
                     <td>{turno.mascota}</td>
                     <td>{turno.motivoConsulta}</td>
                     <td>{turno.telefono}</td>
@@ -127,11 +161,30 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
               name="fecha"
               {...register("fecha", {
                 required: "La fecha es un campo obligatorio",
+                validate: (value) => {
+                  const fechaActual = new Date();
+                  const fechaSeleccionada = new Date(value);
+                  return (
+                    fechaSeleccionada >= fechaActual ||
+                    Swal.fire({
+                      icon: "error",
+                      title:
+                        "No se puede cargar una fecha anterior a la de hoy",
+                      text: "Por favor introduzca una fecha valida.",
+                    })
+                  );
+                },
               })}
               className=""
             />
+            {errors.fecha && <span>{errors.fecha.message}</span>}
             <br />
             <Form.Select name="hora" {...register("hora")}>
+              {/* {getHoursOptions().map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))} */}
               <option value="9:00">9:00</option>
               <option value="9:30">9:30</option>
               <option value="10:00">10:00</option>
@@ -166,6 +219,9 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
                 type="text"
                 placeholder="Juan Ignacio Valdez"
                 name="propietario"
+                maxLength={30}
+                minLength={5}
+                //pattern="[a-z, A-Z]"
                 {...register("propietario", {
                   required: "El propietario es un campo obligatorio",
                 })}
@@ -179,6 +235,8 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
                 type="text"
                 placeholder="Nombre de la mascota"
                 name="mascota"
+                maxLength={30}
+                minLength={1}
                 {...register("mascota", {
                   required: "La mascota es un campo obligatorio",
                 })}
@@ -192,6 +250,9 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
                 type="text"
                 placeholder="motivo de la Consulta"
                 name="motivoConsulta"
+                maxLength={30}
+                minLength={1}
+                //pattern=""
                 {...register("motivoConsulta", {
                   required: "El motivo de la consulta es un campo obligatorio",
                 })}
@@ -205,6 +266,7 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
                 type="number"
                 placeholder="3515695548"
                 name="telefono"
+                pattern="[0-9]"
                 {...register("telefono", {
                   required: "El telefono es un campo obligatorio",
                 })}
