@@ -1,115 +1,124 @@
-import React, { useEffect,useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { Form, Button } from 'react-bootstrap'
-import { useNavigate, useParams } from 'react-router-dom'
-import { modificarPaciente, capturarUnPaciente } from '../utils'
-import Swal from 'sweetalert2'
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { Form, Button } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import { modificarPaciente, capturarUnPaciente } from "../utils";
+import Swal from "sweetalert2";
 const CrearPaciente = () => {
-    const { handleSubmit, register, formState: { errors }, reset,setValue } = useForm()
-    const navigate = useNavigate();
-    const params = useParams();
-    
-    const updatePaciente = async (obj) => {
-        
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+    reset,
+    setValue,
+  } = useForm();
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const updatePaciente = async (obj) => {
+    let paciente = await capturarUnPaciente(params.id);
+
+    const { data } = paciente;
+
+    data.nombre = obj.nombre;
+    data.apellido = obj.apellido;
+    data.email = obj.email;
+    data.telefono = obj.telefono;
+    let pacienteActualizado = await modificarPaciente(params.id, data);
+    if (!paciente) {
+      Swal.fire({
+        title: "Oops!",
+        text: "Algo salio mal. Intente nuevamente.",
+        icon: "error",
+      });
+    } else {
+      let timerInterval;
+      Swal.fire({
+        title: "Paciente Actualizado!",
+        text: "Volviendo a Administrador de Pacientes...",
+        icon: "success",
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          timerInterval = setInterval(() => {}, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+          navigate("/admin/gestionPacientes");
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log("I was closed by the timer");
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    const leerPaciente = async () => {
+      if (params.id) {
         let paciente = await capturarUnPaciente(params.id);
-        console.log(paciente);
-        const {data} = paciente
+        const { data } = paciente;
 
-        data.nombre = obj.nombre
-        data.apellido = obj.apellido
-        data.email = obj.email
-        data.telefono = obj.telefono
-        let pacienteActualizado = await modificarPaciente(params.id,data);
-        if(!paciente){
-            Swal.fire({
-                title: "Oops!",
-                text: "Algo salio mal. Intente nuevamente.",
-                icon: "error"
-              });
-        }
-        else{
-            let timerInterval;
-            Swal.fire({
-                title: "Paciente Actualizado!",
-                text: "Volviendo a Administrador de Pacientes...",
-                icon: "success",
-                timer: 1000,
-                timerProgressBar: true,
-                didOpen: () => {
-                  Swal.showLoading();
-                  timerInterval = setInterval(() => {
-                  }, 100);
-                },
-                willClose: () => {
-                  clearInterval(timerInterval);
-                  navigate('/admin/gestionPacientes');
-                 
-              }
-              }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                  console.log("I was closed by the timer");
-                }
-              });
-        }
+        setValue("nombre", data.nombre);
+        setValue("apellido", data.apellido);
+        setValue("email", data.email);
+        setValue("telefono", data.telefono);
+      }
     };
+    leerPaciente();
+  }, []);
 
-    
+  return (
+    <main>
+      <h1>Agregar Paciente</h1>
+      <Form onSubmit={handleSubmit(updatePaciente)}>
+        <Form.Group>
+          <Form.Label>Nombre</Form.Label>
+          <Form.Control
+            type="text"
+            {...register("nombre", { required: "Este campo es obligatorio" })}
+          />
+          <Form.Text className="text-danger">
+            {errors.nombre?.message}
+          </Form.Text>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Apellido</Form.Label>
+          <Form.Control
+            type="text"
+            {...register("apellido", { required: "Este campo es obligatorio" })}
+          />
+          <Form.Text className="text-danger">
+            {errors.apellido?.message}
+          </Form.Text>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            {...register("email", { required: "Este campo es obligatorio" })}
+          />
+          <Form.Text className="text-danger">{errors.email?.message}</Form.Text>
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Telefono</Form.Label>
+          <Form.Control
+            type="number"
+            {...register("telefono", { required: "Este campo es obligatorio" })}
+          />
+          <Form.Text className="text-danger">
+            {errors.telefono?.message}
+          </Form.Text>
+        </Form.Group>
 
-    useEffect(()=>{
-        const leerPaciente = async()=>{
-            
-            if(params.id){
-                let paciente = await capturarUnPaciente(params.id);
-                const {data} = paciente
-                
-                setValue("nombre",data.nombre);
-                setValue("apellido",data.apellido);
-                setValue("email",data.email);
-                setValue("telefono",data.telefono);
-            }
-          }
-        leerPaciente();
-    },[])
+        <Button>Cancelar</Button>
+        <Button type="submit">Guardar</Button>
+      </Form>
+    </main>
+  );
+};
 
-    return (
-        <main>
-            <h1>Agregar Paciente</h1>
-            <Form onSubmit={handleSubmit(updatePaciente)}>
-                <Form.Group>
-                    <Form.Label>Nombre</Form.Label>
-                    <Form.Control  type="text"  {...register("nombre",{required:"Este campo es obligatorio"})} />
-                    <Form.Text className='text-danger'>
-                        {errors.nombre?.message}
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Apellido</Form.Label>
-                    <Form.Control type='text'  {...register("apellido",{required:"Este campo es obligatorio"})} />
-                    <Form.Text className='text-danger'>
-                        {errors.apellido?.message}
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type='email'  {...register("email",{required:"Este campo es obligatorio"})} />
-                    <Form.Text className='text-danger'>
-                        {errors.email?.message}
-                    </Form.Text>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Telefono</Form.Label>
-                    <Form.Control type='number'  {...register("telefono",{required:"Este campo es obligatorio"})} />
-                    <Form.Text className='text-danger'>
-                        {errors.telefono?.message}
-                    </Form.Text>
-                </Form.Group>
-
-                <Button>Cancelar</Button>
-                <Button type="submit">Guardar</Button>
-            </Form>
-        </main>
-    )
-}
-
-export default CrearPaciente
+export default CrearPaciente;
