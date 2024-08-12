@@ -1,6 +1,10 @@
 const urlPacientes = import.meta.env.VITE_URL_PACIENTES;
 const urlMascotas = import.meta.env.VITE_URL_MASCOTAS;
 const urlTurnos = import.meta.env.VITE_URL_TURNOS;
+
+// const urlPacientes = "http://localhost:3000/pacientes";
+// const urlMascotas = "http://localhost:3000/mascotas";
+// const urlTurnos = "http://localhost:3000/turnos";
 import axios from 'axios';
 import { compareSync } from 'bcryptjs-react';
 
@@ -40,6 +44,7 @@ export const traerPacientes = async () => {
     console.log(Pacientes);
     
     return Pacientes;
+    return data
   } catch (error) {
     console.error(error);
   }
@@ -109,6 +114,7 @@ export const traerTurnos = async () => {
     let { data } = turnos;
     let { Turnos } = data
     return Turnos;
+    return data
   } catch (error) {
     console.error(error);
   }
@@ -172,6 +178,7 @@ export const traerMascotas = async () => {
         let {data} = mascotasDB;
         let {mascotas} = data
         return mascotas
+        return data
     } catch (error) {
         console.error(error)
     }
