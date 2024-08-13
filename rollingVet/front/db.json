@@ -5,6 +5,7 @@
       "nombre": "alber",
       "apellido": "Mainardi",
       "email": "usuario@gmail.com",
+      "clave": "123",
       "telefono": 12345678,
       "estado": true,
       "mascotasIDs": [
@@ -15,7 +16,8 @@
         "543e",
         "9792",
         "cdb0",
-        "f1ef"
+        "f1ef",
+        "c374"
       ],
       "admin": true
     },
@@ -74,16 +76,23 @@
       "propietarioID": "9e15"
     },
     {
-      "id": "cdb0",
-      "nombre": "Tom",
-      "especie": "gato",
-      "raza": "siames",
+      "id": "4b51",
+      "nombre": "Pepe",
+      "especie": "Perro",
+      "raza": "Ovejero Alemán",
+      "propietarioID": "9e15"
+    },
+    {
+      "id": "87cb",
+      "nombre": "Odin",
+      "especie": "Gato",
+      "raza": "Mestizo",
       "propietarioID": "9e15"
     }
   ],
   "turnos": [
     {
-      "id": "c294",
+      "id": "2147",
       "fecha": "2024-08-06",
       "hora": "12:30",
       "sucursal": "sucursal2",

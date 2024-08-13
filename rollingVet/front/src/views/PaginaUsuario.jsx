@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext, useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ContextoUsuario } from '../components/ContextoUsuario'
 import { Card, ListGroup, Dropdown } from 'react-bootstrap'
 import DropdownMascotasUsuario from '../components/DropdownMascotasUsuario'
@@ -14,10 +14,14 @@ const PaginaUsuario = ({ eliminarMascota, traerMascotasUsuario, }) => {
     const [IDmascotas, setIDMascotas] = useState(mascotasIDs);
     const [mascotasUsuario, setMascotasUsuario] = useState([]);
 
-    traerMascotasUsuario(IDmascotas)
+    useEffect(() => {
+        traerMascotasUsuario(IDmascotas)
         .then(data => {
+            console.log(data);
             setMascotasUsuario(data);
         })
+    },[])
+    
 
     return (
         <main className='bg-miCuenta w-100'>
@@ -47,11 +51,10 @@ const PaginaUsuario = ({ eliminarMascota, traerMascotasUsuario, }) => {
                                 {mascotasUsuario.map((m, i) => {
                                     return <DropdownMascotasUsuario key={`mascota${i}`} mascota={m} paciente={user} eliminarMascota={eliminarMascota}></DropdownMascotasUsuario>
                                 })}
-                                <Dropdown.Item >
-                                    <NavLink className="nav-link" to="../agregarMascota">
-                                        <i class="bi bi-plus"></i> <i className='opacity-75'>Agregar Mascota</i>
-                                    </NavLink>
-                                </Dropdown.Item>
+                                    <Link className='nav-link px-2 py-1' to="../agregarMascota">
+                                    <i className="bi bi-plus"></i> <i className='opacity-75'>Agregar Mascota</i> 
+                                    </Link>
+                                        
                             </Dropdown.Menu>
                         </Dropdown>
                     </ListGroup.Item>
