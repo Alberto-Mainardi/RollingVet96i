@@ -112,7 +112,8 @@ export const traerTurnos = async () => {
     let turnos = await axios.get(`${urlTurnos}/`);
 
     let { data } = turnos;
-    let { Turnos } = data
+    // let { Turnos } = data;
+    // return Turnos;
     return data;
     
   } catch (error) {
@@ -176,7 +177,8 @@ export const traerMascotas = async () => {
     try {
         let mascotasDB = await axios.get(`${urlMascotas}/`);
         let {data} = mascotasDB;
-        let {mascotas} = data
+        // let {mascotas} = data
+        // return mascotas;
         return data
     } catch (error) {
         console.error(error)
@@ -195,4 +197,8 @@ export const traerMascotasUsuario = async (IDmascotasUsuario) => {
         console.log(error);
     }
 }
+
+//RegExp Administrar Turnos
+
+//telefono:
 
