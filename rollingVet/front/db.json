@@ -40,6 +40,16 @@
       "mascota": "svdad",
       "motivoConsulta": "wfwef",
       "telefono": "3585729575"
+    },
+    {
+      "id": "a5f3",
+      "fecha": "2024-08-15",
+      "hora": "12:00",
+      "sucursal": "sucursal1",
+      "propietario": "analia",
+      "mascota": "Pelusa",
+      "motivoConsulta": "dfvsrge",
+      "telefono": "3815645256"
     }
   ],
   "mascotas": [

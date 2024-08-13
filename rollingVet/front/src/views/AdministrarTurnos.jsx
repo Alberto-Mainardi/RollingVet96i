@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import "../estilos/adminTurnos.css";
 import "../App.css";
 
+
 const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
   const {
     register,
@@ -66,6 +67,13 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
 
     reset();
   };
+
+  const telefonoPattern = /^[0-9]{10}$/;
+  const textoPattern = /^[a-zA-Z]+$/;
+
+  // const validarTelefono = (valor, patron) => {
+  //   return patron.test(valor);
+  // };
 
   // const getHoursOptions = () => {
   //   const currentTime = new Date();
@@ -221,9 +229,12 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
                 name="propietario"
                 maxLength={30}
                 minLength={5}
-                //pattern="[a-z, A-Z]"
                 {...register("propietario", {
                   required: "El propietario es un campo obligatorio",
+                  pattern: {
+                    value: textoPattern,
+                    message: "el formato no es valido. Introduzca un nombre que sólo contenga caracteres alfabéticos"
+                  }
                 })}
               />
             </Form.Group>
@@ -239,8 +250,15 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
                 minLength={1}
                 {...register("mascota", {
                   required: "La mascota es un campo obligatorio",
+                  pattern: {
+                    value: textoPattern,
+                    message: "el formato no es valido. Introduzca un nombre que sólo contenga caracteres alfabéticos"
+                  }
                 })}
               />
+              <Form.Text className="text-danger">
+                {errors.mascota?.message}
+            </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="input-motivo">
               <Form.Label>
@@ -252,11 +270,13 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
                 name="motivoConsulta"
                 maxLength={30}
                 minLength={1}
-                //pattern=""
                 {...register("motivoConsulta", {
                   required: "El motivo de la consulta es un campo obligatorio",
                 })}
               />
+              <Form.Text className="text-danger">
+                {errors.motivoConsulta?.message}
+            </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="input-tel">
               <Form.Label>
@@ -264,13 +284,22 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
               </Form.Label>
               <Form.Control
                 type="number"
-                placeholder="3515695548"
+                placeholder="3815623596"
                 name="telefono"
-                pattern="[0-9]"
+                minLength={10}
+                maxLength={10}
                 {...register("telefono", {
                   required: "El telefono es un campo obligatorio",
+                  pattern: {
+                    value: telefonoPattern,
+                    message: "el formato no es valido. Introduzca un número de telefono en formato 999 9 999 999"
+                  }
                 })}
               />
+              <Form.Text className="text-danger">
+                {errors.telefono?.message}
+            </Form.Text>
+              {/* {errors.telefono && <span>{errors.telefono.message}</span>} */}
             </Form.Group>
 
             <Button type="submit">Crear Turno</Button>
