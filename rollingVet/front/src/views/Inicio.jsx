@@ -227,7 +227,8 @@ const Inicio = () => {
         <div className="d-flex justify-content-center m-5">
           <div className="">
             <h2 className="font-title">Clima</h2>
-          <div className="weatherCard">
+            
+          {/* <div className="weatherCard">
             {!error ? (
               <DataCard weatherData={weatherData}></DataCard>
             ) : (
@@ -237,8 +238,8 @@ const Inicio = () => {
               setWeatherData={setWeatherData}
               setError={setError}
             ></WeatherForm>
-          </div>
-          </div>
+          </div>*/}
+          </div> 
           
         </div>
 
