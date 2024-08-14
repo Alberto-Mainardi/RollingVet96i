@@ -96,7 +96,7 @@ const NavbarApp = () => {
                             Contáctanos
                         </NavLink>
 
-                        {user.estado ? <>
+                        {user?.estado ? <>
                             <NavLink className="nav-link text-white fs-5" onClick={logout}>
                                 Cerrar Sesión
                             </NavLink>
@@ -121,7 +121,7 @@ const NavbarApp = () => {
 
 
 
-                        {user.admin ? <>
+                        {user?.admin ? <>
                             <NavLink className="nav-link  text-white fs-5" to="/admin/gestionPacientes">
                                 <img className='' src={administrarPacienteLogo} alt="logo" />
                             </NavLink>
