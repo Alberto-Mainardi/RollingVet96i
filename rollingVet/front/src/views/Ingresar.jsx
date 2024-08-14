@@ -40,14 +40,14 @@ function Ingresar({ ingresoPaciente }) {
             navigate('/');
             setUser(
               {
-                "id": ingreso.id,
-                "nombre": ingreso.nombre,
-                "apellido": ingreso.apellido,
-                "email": ingreso.email,
-                "telefono": ingreso.telefono,
-                "estado": ingreso.estado,
-                "mascotasIDs": ingreso.mascotasIDs,
-                "admin": ingreso.admin,
+                "id": ingreso?.id,
+                "nombre": ingreso?.nombre,
+                "apellido": ingreso?.apellido,
+                "email": ingreso?.email,
+                "telefono": ingreso?.telefono,
+                "estado": ingreso?.estado,
+                "mascotasIDs": ingreso?.mascotasIDs,
+                "admin": ingreso?.admin,
               }
 
             );
