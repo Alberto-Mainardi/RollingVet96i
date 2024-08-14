@@ -161,12 +161,13 @@ export const crearTurno = async (obj) => {
 // Mascotas
 
 export const crearMascota = async (obj) => {
-    let mascota = await axios.post(urlMascotas, obj);
+    let mascota = await axios.post(`${urlMascotas}/crearMascota`, obj);
     return mascota
 }
 export const eliminarMascota = async (id) => {
     try {
         let mascota = await axios.delete(`${urlMascotas}/${id}`)
+        
         return mascota
     } catch (error) {
         console.error(error);
@@ -187,7 +188,7 @@ export const traerMascotasUsuario = async (IDmascotasUsuario) => {
     try {
         const mascotas = await traerMascotas();
         const arrayMascotasUsuario = mascotas.filter((mascota) => {
-            if (IDmascotasUsuario.includes(mascota.id)) {
+            if (IDmascotasUsuario.includes(mascota.uid)) {
                 return mascota
             }
         })

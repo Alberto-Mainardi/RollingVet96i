@@ -8,19 +8,19 @@ import '../estilos/miCuenta.css'
 
 const PaginaUsuario = ({ eliminarMascota, traerMascotasUsuario, }) => {
 
-    const { user } = useContext(ContextoUsuario)
-    const { nombre, apellido, email, telefono, id, mascotasIDs } = user;
+    const { user, setUser } = useContext(ContextoUsuario)
+    const { nombre, apellido, email, telefono, uid, mascotasIDs } = user;
 
-    const [IDmascotas, setIDMascotas] = useState(mascotasIDs);
     const [mascotasUsuario, setMascotasUsuario] = useState([]);
 
     useEffect(() => {
-        traerMascotasUsuario(IDmascotas)
+        traerMascotasUsuario(mascotasIDs)
         .then(data => {
             console.log(data);
             setMascotasUsuario(data);
         })
     },[])
+
     
 
     return (
@@ -48,8 +48,8 @@ const PaginaUsuario = ({ eliminarMascota, traerMascotasUsuario, }) => {
                                 Mis mascotas
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                {mascotasUsuario.map((m, i) => {
-                                    return <DropdownMascotasUsuario key={`mascota${i}`} mascota={m} paciente={user} eliminarMascota={eliminarMascota}></DropdownMascotasUsuario>
+                                {mascotasUsuario.map(m => {
+                                    return <DropdownMascotasUsuario key={`mascota${m.uid}`} mascota={m} paciente={user} setPaciente={setUser} eliminarMascota={eliminarMascota}></DropdownMascotasUsuario>
                                 })}
                                     <Link className='nav-link px-2 py-1' to="../agregarMascota">
                                     <i className="bi bi-plus"></i> <i className='opacity-75'>Agregar Mascota</i> 

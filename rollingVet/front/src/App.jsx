@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { RutasAdmin, RutasPaciente, RutasInvitado } from './routes/RutasPrivadas'
 import { validarPaciente, crearPaciente, modificarPaciente, ingresoPaciente, traerPacientes, capturarUnPaciente, eliminarPaciente, crearMascota, eliminarMascota, traerMascotas, traerMascotasUsuario, traerTurnos, traerUnTurno, crearTurno, actualizarTurno, eliminarTurno, validarTurno } from "./utils/index";
@@ -38,6 +38,9 @@ function App() {
 
   console.log(user);
 
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("user")))
+  },[])
 
   return (
     <ContextoUsuario.Provider value={{ user, setUser }}>

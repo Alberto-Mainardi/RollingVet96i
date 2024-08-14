@@ -11,7 +11,7 @@ import "../App.css";
 
 const agregarMascota = ({ crearMascota, modificarPaciente }) => {
   const { user, setUser } = useContext(ContextoUsuario);
-
+  
   const {
     register,
     handleSubmit,
@@ -20,20 +20,27 @@ const agregarMascota = ({ crearMascota, modificarPaciente }) => {
   } = useForm();
   const realizarMascota = async (obj) => {
     const mascota = obj;
+    
     let mascotaNueva = {
       nombre: mascota.nombre,
       especie: mascota.especie,
       raza: mascota.raza,
-      propietarioID: user.id,
+      propietarioID: user.uid,
     };
 
     let creandoMascota = await crearMascota(mascotaNueva);
     const { data } = creandoMascota;
+    
 
-    user.mascotasIDs.push(data.id);
-    setUser(user);
-    let modificandoPaciente = await modificarPaciente(user.id, user);
-
+    const nuevoUsuario = {
+      ...user,
+      mascotasIDs:[...user.mascotasIDs, data.mascota.uid]
+    }
+    console.log(nuevoUsuario);
+    setUser(nuevoUsuario);
+    localStorage.setItem("user", JSON.stringify(nuevoUsuario));
+    await modificarPaciente(user.uid, user);
+    
     Swal.fire({
       title: "Mascota Creada Exitosamente!",
       text: "",

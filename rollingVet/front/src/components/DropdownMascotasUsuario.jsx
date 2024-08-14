@@ -3,12 +3,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Swal from 'sweetalert2';
 
 
-const DropdownMascotasUsuario = ({ mascota, paciente, eliminarMascota }) => {
+const DropdownMascotasUsuario = ({ mascota, paciente, setPaciente, eliminarMascota }) => {
+
 
     mascota.propietario = paciente.nombre
 
     const modalInfoMascota = () => {
-        console.log(mascota);
+        
 
         Swal.fire({
             title: mascota.nombre,
@@ -24,8 +25,15 @@ const DropdownMascotasUsuario = ({ mascota, paciente, eliminarMascota }) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isDenied) {
 
-                console.log(mascota);
-                eliminarMascota(mascota.id);
+                eliminarMascota(mascota.uid);
+
+                const nuevoUsuario = {
+                    ...paciente,
+                    mascotasIDs: paciente.mascotasIDs.filter(mascotaUsuario => mascotaUsuario.uid != mascota.uid)
+                  }
+                  console.log(nuevoUsuario.mascotasIDs);
+                  setPaciente(nuevoUsuario);
+                  localStorage.setItem("user", JSON.stringify(nuevoUsuario));
 
                 Swal.fire("Mascota eliminada", "", "error");
             }
