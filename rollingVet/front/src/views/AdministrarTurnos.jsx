@@ -71,39 +71,6 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
   const telefonoPattern = /^[0-9]{10}$/;
   const textoPattern = /^[a-zA-Z]+$/;
 
-  // const validarTelefono = (valor, patron) => {
-  //   return patron.test(valor);
-  // };
-
-  // const getHoursOptions = () => {
-  //   const currentTime = new Date();
-  //   const currentHour = currentTime.getHours();
-  //   const currentMinute = currentTime.getMinutes();
-  
-   
-  //   const minAllowedMinute = currentMinute >= 30 ? 0 : 30; 
-  //   const options = [];
-  //   for (let hour = currentHour; hour <= (currentHour === 18 ? currentHour : 24); hour++) { 
-  //     for (let minuto = minAllowedMinute; minuto <=60; minuto +=30) {
-  //     const label = `${hour.toString().padStart(2, "0")} : ${minuto.toString().padStart(2, "0")}`; 
-
-  //     const isOccupied = turnos.some(
-  //       (turno) => turno.hora === label && turno.fecha === register("fecha").value && turno.sucursal === label
-  //     );
-
-  //     if (
-  //       (hour === currentHour && currentMinute >= minAllowedMinute && !isOccupied) ||
-  //       hour > currentHour ||
-  //       !isOccupied
-  //     ) {
-  //       options.push({ value: label, label });
-  //     } 
-      // else if (hour > currentHour) {
-      //   options.push({ value: label, label });
-      // }
-  //   }
-  //   return options;
-  // }}
 
   return (
     <>
@@ -188,11 +155,7 @@ const AdministrarTurnos = ({ traerTurnos, crearTurno, eliminarTurno }) => {
             {errors.fecha && <span>{errors.fecha.message}</span>}
             <br />
             <Form.Select name="hora" {...register("hora")}>
-              {/* {getHoursOptions().map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))} */}
+              
               <option value="9:00">9:00</option>
               <option value="9:30">9:30</option>
               <option value="10:00">10:00</option>

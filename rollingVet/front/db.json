@@ -88,6 +88,31 @@
       "especie": "Gato",
       "raza": "Mestizo",
       "propietarioID": "9e15"
+    },
+    {
+      "id": "fbad",
+      "nombre": "Rulo",
+      "raza": "siames"
+    },
+    {
+      "id": "45f7",
+      "nombre": "Lucia",
+      "raza": "siames"
+    },
+    {
+      "id": "fb61",
+      "nombre": "Lucia",
+      "raza": "siames"
+    },
+    {
+      "id": "8fe3",
+      "nombre": "Lucia",
+      "raza": "siames"
+    },
+    {
+      "id": "5fc6",
+      "nombre": "Lucia",
+      "raza": "siames"
     }
   ],
   "turnos": [

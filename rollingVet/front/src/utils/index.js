@@ -1,15 +1,15 @@
-const urlPacientes = import.meta.env.VITE_URL_PACIENTES;
-const urlMascotas = import.meta.env.VITE_URL_MASCOTAS;
-const urlTurnos = import.meta.env.VITE_URL_TURNOS;
+// const urlPacientes = import.meta.env.VITE_URL_PACIENTES;
+// const urlMascotas = import.meta.env.VITE_URL_MASCOTAS;
+// const urlTurnos = import.meta.env.VITE_URL_TURNOS;
 
-// const urlPacientes = "http://localhost:3000/pacientes";
-// const urlMascotas = "http://localhost:3000/mascotas";
-// const urlTurnos = "http://localhost:3000/turnos";
+const urlPacientes = "http://localhost:3000/pacientes";
+const urlMascotas = "http://localhost:3000/mascotas";
+const urlTurnos = "http://localhost:3000/turnos";
 
 import axios from 'axios';
 import { compareSync } from 'bcryptjs-react';
 
-// CRUD PACIENTES
+// -------------------CRUD PACIENTES------------------------
 
 export const validarPaciente = async (email) => {
   let data = await traerPacientes();
@@ -43,7 +43,7 @@ export const traerPacientes = async () => {
     let {Pacientes} = data;
     console.log(Pacientes);
     
-    return Pacientes;
+    //return Pacientes;
     return data
   } catch (error) {
     console.error(error);
@@ -88,11 +88,7 @@ export const capturarUnPaciente = async (id) => {
     }
 }
 
-// CRUD TURNOS
-
-
-
-
+// --------------------CRUD TURNOS----------------------------
 
 export const validarTurno = async (hora, fecha, sucursal) => {
   let data = await traerTurnos();
@@ -112,8 +108,8 @@ export const traerTurnos = async () => {
     let turnos = await axios.get(`${urlTurnos}/`);
 
     let { data } = turnos;
-    let { Turnos } = data
-    return Turnos;
+    // let { Turnos } = data
+    // return Turnos;
     return data
   } catch (error) {
     console.error(error);
@@ -158,7 +154,7 @@ export const crearTurno = async (obj) => {
   };
 
 
-// Mascotas
+// ----------------------------CRUD MASCOTAS--------------------------
 
 export const crearMascota = async (obj) => {
     let mascota = await axios.post(urlMascotas, obj);
@@ -177,7 +173,7 @@ export const traerMascotas = async () => {
         let mascotasDB = await axios.get(`${urlMascotas}/`);
         let {data} = mascotasDB;
         let {mascotas} = data
-        return mascotas
+        //return mascotas
         return data
     } catch (error) {
         console.error(error)
@@ -197,7 +193,5 @@ export const traerMascotasUsuario = async (IDmascotasUsuario) => {
     }
 }
 
-//RegExp Administrar Turnos
 
-//telefono:
 

@@ -10,7 +10,7 @@ function ImageCardProf(props) {
       <Card.Img src={imagen} className="imgProf" />
       <Card.ImgOverlay className="d-flex flex-column justify-content-center">
         <Card.Title className="tituloProf font-title">{titulo}</Card.Title>
-        <Card.Text className="textoProf">{texto}</Card.Text>
+        <Card.Text className="textoProf font-subtitle">{texto}</Card.Text>
 
         <div className="d-flex justify-content-center">
           <Button variant="dark" as={Link} to="/nosotros">

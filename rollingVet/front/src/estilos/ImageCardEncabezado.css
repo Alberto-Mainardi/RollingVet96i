@@ -4,13 +4,12 @@
     height: 300px;
     max-width: 100%;
     display: block;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .direcEncabezado {
     font-size: 2vw;
     font-weight:bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .textoRevision {

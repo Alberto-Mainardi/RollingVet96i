@@ -6,7 +6,6 @@ import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Error from "../components/Error";
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import CardServicios from "../components/CardServicios";
@@ -104,24 +103,19 @@ const Inicio = () => {
 
   return (
     <main>
+      <div className="encabezado row mx-auto">
+        <ImageCardEncabezado
+          className="col-md-2"
+          direc1={datosEncabezado.direc1}
+          direc2={datosEncabezado.direc2}
+          titulo={datosEncabezado.titulo}
+          imagen={datosEncabezado.imagen}
+        />
+      </div>
       <section className="container justify-content-center">
-        <div className="container my-5">
-          <h1 className="font-title">Rolling Vet</h1>
-        </div>
-
-        <div className="encabezado row mx-auto">
-          <ImageCardEncabezado
-            className="col-md-2"
-            direc1={datosEncabezado.direc1}
-            direc2={datosEncabezado.direc2}
-            titulo={datosEncabezado.titulo}
-            imagen={datosEncabezado.imagen}
-          />
-        </div>
-
         <div className="cuidadoYcariño row justify-content-center">
           <div className="seccion2 col-md-10 col-sm-12">
-            <div>{/* <FontAwesomeIcon icon="fa-thin fa-paw" /> */}</div>
+            <h1 className="font-title">Rolling Vet</h1>
             <h1 className="font-title">Cuidado y Cariño en Cada Visita</h1>
 
             <Button as={Link} to="/contacto" variant="dark">
@@ -227,21 +221,19 @@ const Inicio = () => {
         <div className="d-flex justify-content-center m-5">
           <div className="">
             <h2 className="font-title">Clima</h2>
-          <div className="weatherCard">
-            {!error ? (
-              <DataCard weatherData={weatherData}></DataCard>
-            ) : (
-              <Error />
-            )}
-            <WeatherForm
-              setWeatherData={setWeatherData}
-              setError={setError}
-            ></WeatherForm>
+            <div className="weatherCard">
+              {!error ? (
+                <DataCard weatherData={weatherData}></DataCard>
+              ) : (
+                <Error />
+              )}
+              <WeatherForm
+                setWeatherData={setWeatherData}
+                setError={setError}
+              ></WeatherForm>
+            </div>
           </div>
-          </div>
-          
         </div>
-
       </section>
     </main>
   );
