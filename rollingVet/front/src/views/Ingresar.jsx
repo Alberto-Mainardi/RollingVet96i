@@ -45,7 +45,7 @@ function Ingresar({ ingresoPaciente }) {
                 "apellido": ingreso?.apellido,
                 "email": ingreso?.email,
                 "telefono": ingreso?.telefono,
-                "estado": ingreso?.estado,
+                "estado": "hola",
                 "mascotasIDs": ingreso?.mascotasIDs,
                 "admin": ingreso?.admin,
               }
