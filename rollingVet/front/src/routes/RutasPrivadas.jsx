@@ -10,7 +10,7 @@ const {user} = useContext(ContextoUsuario)
     if (user.admin) {
         return <Outlet/>
     } else {
-        console.log("problemón");
+        
         return <Navigate to="/" replace/>
     }
 }
@@ -20,17 +20,19 @@ export const RutasPaciente = () => {
     if (user.estado) {
         return <Outlet/>
     } else {
-        console.log("problemón");
+        
         return <Navigate to="/" replace/>
     }
 }
 
 export const RutasInvitado = () => {
-    const {user} = useContext(ContextoUsuario);
+    const {user} = useContext(ContextoUsuario);    
+    console.log(user);
+    
     if (!user.estado) {
         return <Outlet/>
     } else {
-        console.log("problemón");
+        
         return <Navigate to="/" replace/>
     }
 }

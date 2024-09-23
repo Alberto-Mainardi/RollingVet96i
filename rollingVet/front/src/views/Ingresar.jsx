@@ -13,9 +13,9 @@ function Ingresar({ ingresoPaciente }) {
   const navigate = useNavigate();
   const ingresar = async (obj) => {
     try {
-      console.log(obj);
+      
       let ingreso = await ingresoPaciente(obj);
-      console.log(ingreso);
+      
       if (!ingreso) {
         Swal.fire({
           icon: "error",
@@ -65,7 +65,7 @@ function Ingresar({ ingresoPaciente }) {
   return (
     <main className="main d-flex justify-content-around align-items-center flex-wrap bg-ingresar w-100">
       <section className='ingresarContainer' style={{ maxWidth: "768px" }}>
-        <Form onSubmit={() => {handleSubmit(ingresar)}}>
+        <Form onSubmit={handleSubmit(ingresar)}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control

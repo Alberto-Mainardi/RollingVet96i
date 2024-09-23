@@ -37,11 +37,11 @@ export const modificarPaciente = async (id, obj) => {
 export const traerPacientes = async () => {
   try {
     let pacientes = await axios.get(`${urlPacientes}/`);
-    console.log(pacientes);
+    
     let { data } = pacientes;
-    console.log(data);
+    
     let {Pacientes} = data;
-    console.log(Pacientes);
+    
     
     return Pacientes;
     return data
@@ -52,19 +52,19 @@ export const traerPacientes = async () => {
 
 export const ingresoPaciente = async (obj) => {
     let pacientes = await traerPacientes();
-    console.log(pacientes);
+   
     const {array} = pacientes;
-    console.log(array);
+   
     
     let paciente = pacientes.find(paciente => {
         if (paciente.email == obj.email && paciente.clave == obj.clave) {
-            console.log(paciente);
+            
             return paciente
         }
     });
     
     if (paciente?.email && /* compareSync(obj.clave, paciente.clave) */ paciente?.clave ) {
-        console.log(paciente);
+        
         return paciente
     }
 }

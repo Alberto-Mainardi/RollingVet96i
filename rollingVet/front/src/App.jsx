@@ -23,24 +23,36 @@ import CrearPaciente from './views/CrearPaciente';
 
 function App() {
 
-  const usuarioGuardado = JSON.parse(localStorage.getItem("user"))
-    ||
-  {
+  // const usuarioGuardado = JSON.parse(localStorage.getItem("user"))
+  //   ||
+  // {
+  //   "nombre": "",
+  //   "apellido": "",
+  //   "email": "",
+  //   "telefono": "",
+  //   "estado": false,
+  //   "mascotasIDs": [],
+  //   "admin": false,
+  // }
+  const usuario = {
     "nombre": "",
     "apellido": "",
     "email": "",
     "telefono": "",
     "estado": false,
     "mascotasIDs": [],
-    "admin": false,
+    "admin": false
   }
-  const [user, setUser] = useState(usuarioGuardado);
+  
+  const [user, setUser] = useState(usuario);
+  
+  if(JSON.parse(localStorage.getItem("user"))){
 
-  console.log(user);
+    useEffect(() => {
+      setUser(JSON.parse(localStorage.getItem("user")))
+    },[])
+  }
 
-  useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("user")))
-  },[])
 
   return (
     <ContextoUsuario.Provider value={{ user, setUser }}>
